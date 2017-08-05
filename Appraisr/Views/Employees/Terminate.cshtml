@@ -20,7 +20,7 @@
         <div class="col-md-6">
             <div class="form-group">
                 @Html.LabelFor(e => e.Employee.TerminationDate, new { @class = "control-label" })
-                @Html.TextBoxFor(e => e.Employee.TerminationDate, new { @class = "form-control" })
+                @Html.TextBoxFor(e => e.Employee.TerminationDate, "{0:d}", new { @class = "form-control datepicker" })
                 @Html.ValidationMessageFor(e => e.Employee.TerminationDate)
             </div>
             <div class="form-group">
