@@ -1,6 +1,6 @@
-﻿@model List<Appraisr.Models.Office>
+﻿@model List<Appraisr.Models.Client>
 @{
-    ViewBag.Title = "Offices";
+    ViewBag.Title = "Clients";
 }
 
 @Html.Partial("_Message")
@@ -10,25 +10,25 @@
 
 <div class="pull-right">
     <a href="@Url.Action("Add")" class="btn btn-primary btn-lg">
-        <span class="glyphicon glyphicon-plus"></span> Add Office
+        <span class="glyphicon glyphicon-plus"></span> Add Client
     </a>
 </div>
 
 <table class="table table-striped">
     <thead>
         <tr>
-            <th>Office</th>
+            <th>Client</th>
             <th>&nbsp;</th>
         </tr>
     </thead>
     <tbody>
-        @foreach (var office in Model)
+        @foreach (var client in Model)
         {
             <tr>
-                <td>@office.OfficeName</td>
+                <td>@client.Name</td>
                 <td>
                     <div class="pull-right">
-                        <a href="@Url.Action("Detail", new { id = office.Id })" class="btn btn-primary btn-xs margin-right">
+                        <a href="@Url.Action("Detail", new { id = client.Id })" class="btn btn-primary btn-xs margin-right">
                             <span class="glyphicon glyphicon-info-sign"></span><span class="hidden-xs"> Detail</span>
                         </a>
                     </div>

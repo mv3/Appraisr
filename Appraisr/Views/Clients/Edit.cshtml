@@ -1,7 +1,7 @@
-﻿@model Appraisr.ViewModels.OfficeViewModels.OfficesEditViewModel
-
+﻿@model Appraisr.ViewModels.ClientViewModels.ClientEditViewModel
+    
 @{
-    ViewBag.Title = "Edit Office";
+    ViewBag.Title = "Edit Client";
 }
 
 <h2>@ViewBag.Title</h2>
@@ -10,9 +10,9 @@
 {
     //@Html.ValidationSummary("The following errors were found:", new { @class = "alert alert-danger" })
 
-    <h3>Office Information</h3>
+    <h3>Client Information</h3>
 
-    @Html.Partial("_OfficeForm")
+    @Html.Partial("_ClientForm")
 
     <div class="row">
         <div class="col-md-12">
@@ -20,7 +20,7 @@
                 <button type="submit" class="btn btn-success btn-lg margin-right">
                     <span class="glyphicon glyphicon-save"></span> Save
                 </button>
-                <a href="@Url.Action("Detail", new { id = Model.Office.Id })" class="btn btn-warning btn-lg">
+                <a href="@Url.Action("Detail", new { id = Model.Client.Id })" class="btn btn-warning btn-lg">
                     <span class="glyphicon glyphicon-remove"></span> Cancel
                 </a>
             </div>

@@ -1,7 +1,6 @@
-﻿@model Appraisr.ViewModels.OfficeViewModels.OfficesAddViewModel
-
+﻿@model Appraisr.ViewModels.ClientViewModels.ClientAddViewModel
 @{
-    ViewBag.Title = "Add Office";
+    ViewBag.Title = "Add Client";
 }
 
 <h2>@ViewBag.Title</h2>
@@ -11,9 +10,9 @@
     @*@Html.ValidationSummary("The following errors were found:", new { @class = "alert alert-danger" })*@
 
 
-    <h3>Office Information</h3>
+    <h3>Client Information</h3>
 
-    @Html.Partial("_OfficeForm")
+    @Html.Partial("_ClientForm")
 
     <div class="row">
         <div class="col-md-12">

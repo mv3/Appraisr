@@ -42,25 +42,6 @@ namespace Appraisr.Controllers
             return View(office);
         }
 
-        public ActionResult OfficeError(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-
-            var office = _officeRepo.Get((int)id);
-
-            if (office == null)
-            {
-                return HttpNotFound();
-            }
-
-            TempData["Warning"] = "All employees must be assigned to a new office before an office can be deleted.";
-            return View(office);
-        }
-
-
         public ActionResult Add()
         {
             var viewModel = new OfficesAddViewModel();

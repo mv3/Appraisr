@@ -9,12 +9,10 @@ namespace Appraisr.Data
 {
     public class OfficesRepository : BaseRepository<Office>
     {
-        private EmployeeRepository _empRepo = null;
-
         public OfficesRepository(Context context)
             : base(context)
         {
-            _empRepo = new EmployeeRepository(context);
+            
         }
 
         public override IList<Office> GetList()

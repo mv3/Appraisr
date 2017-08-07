@@ -1,4 +1,4 @@
-﻿@model Appraisr.Models.Office
+﻿@model Appraisr.Models.Client
 
 @{
     ViewBag.Title = "Office Detail";
@@ -8,47 +8,95 @@
 @Html.Partial("_Warning")
 
 
-<h2>@Model.OfficeName</h2>
+<h2>@Model.Name</h2>
 
 <div class="row">
     <div class="col-md-6">
         <div class="row">
             <div class="col-xs-4 col-sm-4">
-                @Html.LabelFor(o => o.Address)
+                @Html.LabelFor(c => c.Name)
             </div>
             <div class="col-xs-8 col-sm-8">
-                @Model.Address
+                @Model.Name
             </div>
         </div> 
         <div class="row">
             <div class="col-xs-4 col-sm-4">
-                @Html.LabelFor(o => o.City)
+                @Html.LabelFor(c => c.Address.Line1)
             </div>
             <div class="col-xs-8 col-sm-8">
-                @Model.City
+                @Model.Address.Line1
             </div>
         </div>
         <div class="row">
             <div class="col-xs-4 col-sm-4">
-                @Html.LabelFor(o => o.Zip)
+                @Html.LabelFor(c => c.Address.Line2)
             </div>
             <div class="col-xs-8 col-sm-8">
-                @Model.Zip
+                @Model.Address.Line2
             </div>
         </div>
         <div class="row">
             <div class="col-xs-4 col-sm-4">
-                @Html.LabelFor(o => o.Phone)
+                @Html.LabelFor(c => c.Address.City)
+            </div>
+            <div class="col-xs-8 col-sm-8">
+                @Model.Address.City
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-4 col-sm-4">
+                @Html.LabelFor(c => c.Address.State)
+            </div>
+            <div class="col-xs-8 col-sm-8">
+                @Model.Address.State
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-4 col-sm-4">
+                @Html.LabelFor(c => c.Address.ZipCode)
+            </div>
+            <div class="col-xs-8 col-sm-8">
+                @Model.Address.ZipCode
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-4 col-sm-4">
+                @Html.LabelFor(c => c.Phone)
             </div>
             <div class="col-xs-8 col-sm-8">
                 @Model.Phone
             </div>
-        </div>       
+        </div>
+        <div class="row">
+            <div class="col-xs-4 col-sm-4">
+                @Html.LabelFor(c => c.Email)
+            </div>
+            <div class="col-xs-8 col-sm-8">
+                @Model.Email
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-4 col-sm-4">
+                @Html.LabelFor(c => c.Phone)
+            </div>
+            <div class="col-xs-8 col-sm-8">
+                @Model.Phone
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div>
+                @Html.LabelFor(c => c.SpecialInstructions)
+            </div>
+            <div>
+                @(!string.IsNullOrWhiteSpace(Model.SpecialInstructions) ? Model.SpecialInstructions : "N/A")
+            </div>
+        </div>
     </div>
 </div>
 
-<h3>Employees</h3>
-@if (Model.Employees.Count > 0)
+<h3>Orders</h3>
+@*@if (Model.Employees.Count > 0)
 {
     <table class="table table-striped">
         <thead>
@@ -79,7 +127,7 @@
 else
 {
     <p>This office doesn't contain any employees.</p>
-}
+}*@
 
 <div class="pad-top">
     <a href="@Url.Action("Edit", new { id = Model.Id })" class="btn btn-primary btn-lg margin-right">

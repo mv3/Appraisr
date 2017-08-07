@@ -5,7 +5,8 @@ using System.Web;
 
 namespace Appraisr.ViewModels.ClientViewModels
 {
-    public class ClientAddViewModel
+    public class ClientAddViewModel : ClientBaseViewModel
     {
+        
     }
 }

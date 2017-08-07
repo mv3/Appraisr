@@ -93,9 +93,27 @@ namespace Appraisr.Data
             };
             context.Employees.Add(emp4);
 
+            var client1 = new Client()
+            {
+                Name = "Acme Bank",
+                Phone = "444-4444",
+                Email = "Orders@AcmeBank.com",
+                Type = "Morgage",
+                SpecialInstructions = "",
+                Address = new Address()
+                {
+                    Line1 = "134 Bank Road",
+                    Line2 = "",
+                    City = "Jeffesron City",
+                    State = "MO",
+                    ZipCode = "65101"
+                }
+            };
+            context.Clients.Add(client1);
+
             context.SaveChanges();
+
+
         }
-
-
     }
 }

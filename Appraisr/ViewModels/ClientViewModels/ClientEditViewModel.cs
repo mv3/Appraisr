@@ -5,7 +5,12 @@ using System.Web;
 
 namespace Appraisr.ViewModels.ClientViewModels
 {
-    public class ClientEditViewModel
+    public class ClientEditViewModel : ClientBaseViewModel
     {
+        public int Id
+        {
+            get { return Client.Id; }
+            set { Client.Id = value; }
+        }
     }
 }
