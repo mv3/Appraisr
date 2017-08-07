@@ -9,5 +9,10 @@ namespace Appraisr.Models
     {
         public int Id { get; set; }
         public String Name { get; set; }
+        public Address Address { get; set; }
+        public string Phone { get; set; }
+        public string Email { get; set; }
+        public string Type { get; set; }
+        public string SpecialInstructions { get; set; }
     }
 }

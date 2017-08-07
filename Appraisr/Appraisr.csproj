@@ -168,9 +168,15 @@
     <Compile Include="Models\Order.cs" />
     <Compile Include="Models\Report.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\ClientViewModels\ClientAddViewModel.cs" />
+    <Compile Include="ViewModels\ClientViewModels\ClientBaseViewModel.cs" />
+    <Compile Include="ViewModels\ClientViewModels\ClientEditViewModel.cs" />
     <Compile Include="ViewModels\EmployeeViewModels\EmployeesAddViewModel.cs" />
     <Compile Include="ViewModels\EmployeeViewModels\EmployeesBaseViewModel.cs" />
     <Compile Include="ViewModels\EmployeeViewModels\EmployeesEditViewModel.cs" />
+    <Compile Include="ViewModels\OfficeViewModels\OfficesAddViewModel.cs" />
+    <Compile Include="ViewModels\OfficeViewModels\OfficesBaseViewModel.cs" />
+    <Compile Include="ViewModels\OfficeViewModels\OfficesEditViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-datepicker.css" />
@@ -318,10 +324,16 @@
     <Content Include="Views\Offices\Detail.cshtml" />
     <Content Include="Views\Offices\Edit.cshtml" />
     <Content Include="Views\Offices\Delete.cshtml" />
+    <Content Include="Views\Shared\_Warning.cshtml" />
+    <Content Include="Views\Clients\_ClientForm.cshtml" />
+    <Content Include="Views\Clients\Add.cshtml" />
+    <Content Include="Views\Clients\Delete.cshtml" />
+    <Content Include="Views\Clients\Detail.cshtml" />
+    <Content Include="Views\Clients\Edit.cshtml" />
+    <Content Include="Views\Clients\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Clients\" />
     <Folder Include="Views\Orders\" />
   </ItemGroup>
   <ItemGroup>

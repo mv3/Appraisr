@@ -10,8 +10,16 @@ namespace Appraisr.Data
     internal class DatabaseInitializer : DropCreateDatabaseIfModelChanges<Context>
     {
         protected override void Seed(Context context)
-        {           
-        
+        {
+
+            var NoOffice = new Office()
+            {
+                Id = 99,
+                Address = "N/A",
+                City = "N/A",
+                Zip = "N/A",
+                Phone = "N/A"
+            };
             var JCOffice = new Office()
             {
                 Address="123 Street Rd",
@@ -57,18 +65,33 @@ namespace Appraisr.Data
 
             var emp3 = new Employee()
             {
-                FirstName = "Bad",
-                LastName = "Worker",
+                FirstName = "Oscar",
+                LastName = "Grouch",
                 PhoneCell = "111-1111",
                 PhoneExt = "111",
-                Email = "BWorker@Appraisr.com",
+                Email = "OGrouch@Appraisr.com",
                 HireDate = new DateTime(2014, 6, 1),
                 TerminationDate = new DateTime(2015, 1, 1),
-                TerminationReason = "Incompetence",
+                TerminationReason = "Grouchy",
                 Office = ComoOffice,
                 Active = false
             };
             context.Employees.Add(emp3);
+
+            var emp4 = new Employee()
+            {
+                FirstName = "Lost",
+                LastName = "Worker",
+                PhoneCell = "111-1111",
+                PhoneExt = "111",
+                Email = "LWorker@Appraisr.com",
+                HireDate = new DateTime(2014, 6, 1),
+                TerminationDate = new DateTime(1900, 1, 1),
+                TerminationReason = "",
+                Office = NoOffice,
+                Active = true
+            };
+            context.Employees.Add(emp4);
 
             context.SaveChanges();
         }
