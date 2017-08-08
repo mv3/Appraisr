@@ -1,0 +1,96 @@
+﻿@model Appraisr.ViewModels.OrderViewModels.OrdersBaseViewModel
+
+<div class="row">
+    <div class="col-md-6">
+        <div class="form-group">
+            @Html.LabelFor(o => o.Order.OrderNumber, new { @class = "control-label" })
+            @Html.TextBoxFor(o => o.Order.OrderNumber, new { @class = "form-control" })
+            @Html.ValidationMessageFor(o => o.Order.OrderNumber)
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(o => o.Order.DateOrdered, new { @class = "control-label" })
+            @Html.TextBoxFor(o => o.Order.DateOrdered, "{0:d}", new { @class = "form-control" })
+            @Html.ValidationMessageFor(o => o.Order.DateOrdered)
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(o => o.Order.DateInspected, new { @class = "control-label" })
+            @Html.TextBoxFor(o => o.Order.DateInspected, "{0:d}", new { @class = "form-control" })
+            @Html.ValidationMessageFor(o => o.Order.DateInspected)
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(o => o.Order.DateCompleted, new { @class = "control-label" })
+            @Html.TextBoxFor(o => o.Order.DateCompleted, "{0:d}", new { @class = "form-control" })
+            @Html.ValidationMessageFor(o => o.Order.DateCompleted)
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(o => o.Order.DateDue, new { @class = "control-label" })
+            @Html.TextBoxFor(o => o.Order.DateDue, "{0:d}", new { @class = "form-control" })
+            @Html.ValidationMessageFor(o => o.Order.DateDue)
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(o => o.Order.DateDelivered, new { @class = "control-label" })
+            @Html.TextBoxFor(o => o.Order.DateDelivered, "{0:d}", new { @class = "form-control" })
+            @Html.ValidationMessageFor(o => o.Order.DateDelivered)
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(o => o.Order.DateInvoiced, new { @class = "control-label" })
+            @Html.TextBoxFor(o => o.Order.DateInvoiced, "{0:d}", new { @class = "form-control" })
+            @Html.ValidationMessageFor(o => o.Order.DateInvoiced)
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(o => o.Order.DatePaid, new { @class = "control-label" })
+            @Html.TextBoxFor(o => o.Order.DatePaid, "{0:d}", new { @class = "form-control" })
+            @Html.ValidationMessageFor(o => o.Order.DatePaid)
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(o => o.Order.Address.Line1, new { @class = "control-label" })
+            @Html.TextBoxFor(o => o.Order.Address.Line1, new { @class = "form-control" })
+            @Html.ValidationMessageFor(o => o.Order.Address.Line1)
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(o => o.Order.Address.Line2, new { @class = "control-label" })
+            @Html.TextBoxFor(o => o.Order.Address.Line2, new { @class = "form-control" })
+            @Html.ValidationMessageFor(o => o.Order.Address.Line2)
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(o => o.Order.Address.City, new { @class = "control-label" })
+            @Html.TextBoxFor(o => o.Order.Address.City, new { @class = "form-control" })
+            @Html.ValidationMessageFor(o => o.Order.Address.City)
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(o => o.Order.Address.State, new { @class = "control-label" })
+            @Html.TextBoxFor(o => o.Order.Address.State, new { @class = "form-control" })
+            @Html.ValidationMessageFor(o => o.Order.Address.State)
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(o => o.Order.Address.ZipCode, new { @class = "control-label" })
+            @Html.TextBoxFor(o => o.Order.Address.ZipCode, new { @class = "form-control" })
+            @Html.ValidationMessageFor(o => o.Order.Address.ZipCode)
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(o => o.Order.AppraisedValue, new { @class = "control-label" })
+            @Html.TextBoxFor(o => o.Order.AppraisedValue, new { @class = "form-control" })
+            @Html.ValidationMessageFor(o => o.Order.AppraisedValue)
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(o => o.Order.ClientId, new { @class = "control-label" })
+            @Html.DropDownListFor(o => o.Order.ClientId,
+            Model.ClientsSelectListItems, "", new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(o => o.Order.AppraiserId, new { @class = "control-label" })
+            @Html.DropDownListFor(o => o.Order.AppraiserId,
+            Model.AppraisersSelectListItems, "", new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(o => o.Order.ReportId, new { @class = "control-label" })
+            @Html.DropDownListFor(o => o.Order.ReportId,
+            Model.ReportsSelectListItems, "", new { @class = "form-control" })
+        </div>
+
+   
+    </div>
+</div>
+
+
+

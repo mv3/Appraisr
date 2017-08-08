@@ -81,7 +81,7 @@
                     @Html.LabelFor(e => e.TerminationDate)
                 </div>
                 <div class="col-xs-8 col-sm-8">
-                    @Model.TerminationDate.ToShortDateString()
+                    @string.Format("{0:MM/dd/yyyy}", Model.TerminationDate)
                 </div>
             </div>
             <div class="row">

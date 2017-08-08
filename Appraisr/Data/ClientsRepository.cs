@@ -30,7 +30,7 @@ namespace Appraisr.Data
             if (includeRelatedEntities)
             {
                 clients = clients
-                    .Include(c => c.Address); ;
+                    .Include(c => c.Address); 
             }
 
             return clients

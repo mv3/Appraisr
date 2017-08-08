@@ -152,12 +152,14 @@
     <Compile Include="Controllers\EmployeesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\OfficesController.cs" />
+    <Compile Include="Controllers\OrdersController.cs" />
     <Compile Include="Data\BaseRepository.cs" />
     <Compile Include="Data\ClientsRepository.cs" />
     <Compile Include="Data\Context.cs" />
     <Compile Include="Data\DatabaseInitializer.cs" />
     <Compile Include="Data\EmployeeRepository.cs" />
     <Compile Include="Data\OfficesRepository.cs" />
+    <Compile Include="Data\OrdersRepository.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -179,6 +181,9 @@
     <Compile Include="ViewModels\OfficeViewModels\OfficesAddViewModel.cs" />
     <Compile Include="ViewModels\OfficeViewModels\OfficesBaseViewModel.cs" />
     <Compile Include="ViewModels\OfficeViewModels\OfficesEditViewModel.cs" />
+    <Compile Include="ViewModels\OrderViewModels\OrdersAddViewModel.cs" />
+    <Compile Include="ViewModels\OrderViewModels\OrdersBaseViewModel.cs" />
+    <Compile Include="ViewModels\OrderViewModels\OrdersEditViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-datepicker.css" />
@@ -333,10 +338,16 @@
     <Content Include="Views\Clients\Detail.cshtml" />
     <Content Include="Views\Clients\Edit.cshtml" />
     <Content Include="Views\Clients\Index.cshtml" />
+    <Content Include="Views\Orders\_OrderForm.cshtml" />
+    <Content Include="Views\Orders\Add.cshtml" />
+    <Content Include="Views\Orders\Delete.cshtml" />
+    <Content Include="Views\Orders\Detail.cshtml" />
+    <Content Include="Views\Orders\Edit.cshtml" />
+    <Content Include="Views\Orders\Index.cshtml" />
+    <Content Include="Views\Employees\_AppraiserForm.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Orders\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

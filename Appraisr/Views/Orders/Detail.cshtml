@@ -1,0 +1,165 @@
+﻿@model Appraisr.Models.Order
+
+@{
+    ViewBag.Title = "Order Detail";
+}
+
+@Html.Partial("_Message")
+@Html.Partial("_Warning")
+
+
+<h2>@Model.OrderNumber</h2>
+
+<div class="row">
+    <div class="col-md-6">
+        <div class="row">
+            <div class="col-xs-4 col-sm-4">
+                @Html.LabelFor(o => o.OrderNumber)
+            </div>
+            <div class="col-xs-8 col-sm-8">
+                @Model.OrderNumber
+            </div>
+        </div> 
+        <div class="row">
+            <div class="col-xs-4 col-sm-4">
+                @Html.LabelFor(o => o.DateOrdered)
+            </div>
+            <div class="col-xs-8 col-sm-8">
+                @Model.DateOrdered
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-4 col-sm-4">
+                @Html.LabelFor(o => o.DateInspected)
+            </div>
+            <div class="col-xs-8 col-sm-8">
+                @string.Format("{0:MM/dd/yyyy}", Model.DateInspected)
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-4 col-sm-4">
+                @Html.LabelFor(o => o.DateCompleted)
+            </div>
+            <div class="col-xs-8 col-sm-8">
+                @string.Format("{0:MM/dd/yyyy}", Model.DateCompleted)
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-4 col-sm-4">
+                @Html.LabelFor(o => o.DateDue)
+            </div>
+            <div class="col-xs-8 col-sm-8">
+                @string.Format("{0:MM/dd/yyyy}", Model.DateDue)
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-4 col-sm-4">
+                @Html.LabelFor(o => o.DateDelivered)
+            </div>
+            <div class="col-xs-8 col-sm-8">
+                @string.Format("{0:MM/dd/yyyy}", Model.DateDelivered)
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-4 col-sm-4">
+                @Html.LabelFor(o => o.DateInvoiced)
+            </div>
+            <div class="col-xs-8 col-sm-8">
+                @string.Format("{0:MM/dd/yyyy}", Model.DateInvoiced)
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-4 col-sm-4">
+                @Html.LabelFor(o => o.DatePaid)
+            </div>
+            <div class="col-xs-8 col-sm-8">
+                @string.Format("{0:MM/dd/yyyy}", Model.DatePaid)
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-4 col-sm-4">
+                @Html.LabelFor(o => o.Address.Line1)
+            </div>
+            <div class="col-xs-8 col-sm-8">
+                @Model.Address.Line1
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-4 col-sm-4">
+                @Html.LabelFor(o => o.Address.Line2)
+            </div>
+            <div class="col-xs-8 col-sm-8">
+                @Model.Address.Line2
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-4 col-sm-4">
+                @Html.LabelFor(o => o.Address.City)
+            </div>
+            <div class="col-xs-8 col-sm-8">
+                @Model.Address.City
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-4 col-sm-4">
+                @Html.LabelFor(o => o.Address.State)
+            </div>
+            <div class="col-xs-8 col-sm-8">
+                @Model.Address.State
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-4 col-sm-4">
+                @Html.LabelFor(o => o.Address.ZipCode)
+            </div>
+            <div class="col-xs-8 col-sm-8">
+                @Model.Address.ZipCode
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-4 col-sm-4">
+                @Html.LabelFor(o => o.AppraisedValue)
+            </div>
+            <div class="col-xs-8 col-sm-8">
+                @Model.AppraisedValue
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-4 col-sm-4">
+                @Html.LabelFor(o => o.Client.Name)
+            </div>
+            <div class="col-xs-8 col-sm-8">
+                @Model.Client.Name
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-4 col-sm-4">
+                @Html.LabelFor(o => o.Appraiser.PrintName)
+            </div>
+            <div class="col-xs-8 col-sm-8">
+                @Model.Appraiser.PrintName
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-4 col-sm-4">
+                @Html.LabelFor(o => o.Report.Form)
+            </div>
+            <div class="col-xs-8 col-sm-8">
+                @Model.Report.Form
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="pad-top">
+    <a href="@Url.Action("Edit", new { id = Model.Id })" class="btn btn-primary btn-lg margin-right">
+        <span class="glyphicon glyphicon-edit"></span> Edit
+    </a>
+    <a href="@Url.Action("Delete", new { id = Model.Id })" class="btn btn-danger btn-lg margin-right">
+        <span class="glyphicon glyphicon-trash"></span> Delete 
+    </a>
+    <a href="@Url.Action("Index")" class="btn btn-default btn-lg">
+        <span class="glyphicon glyphicon-step-backward"></span> Back
+    </a>
+</div>

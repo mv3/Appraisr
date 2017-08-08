@@ -1,0 +1,42 @@
+﻿@model List<Appraisr.Models.Order>
+@{
+    ViewBag.Title = "Orders";
+}
+
+@Html.Partial("_Message")
+
+
+<h2>@ViewBag.Title</h2>
+
+<div class="pull-right">
+    <a href="@Url.Action("Add")" class="btn btn-primary btn-lg">
+        <span class="glyphicon glyphicon-plus"></span> Add Order
+    </a>
+</div>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Order</th>
+            <th>Client</th>
+            <th>&nbsp;</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var order in Model)
+        {
+            <tr>
+                <td>@order.OrderNumber</td>
+                <td>@order.Client.Name</td>
+                <td>
+                    <div class="pull-right">
+                        <a href="@Url.Action("Detail", new { id = order.Id })" class="btn btn-primary btn-xs margin-right">
+                            <span class="glyphicon glyphicon-info-sign"></span><span class="hidden-xs"> Detail</span>
+                        </a>
+                    </div>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+

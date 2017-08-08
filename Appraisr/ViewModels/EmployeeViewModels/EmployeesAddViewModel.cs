@@ -12,7 +12,6 @@ namespace Appraisr.ViewModels.EmployeeViewModels
         public EmployeesAddViewModel()
         {
             Employee.HireDate = DateTime.Today;
-            Employee.TerminationDate = new DateTime(1900, 1, 1);
             Employee.Active = true;
         }
 

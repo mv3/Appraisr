@@ -10,8 +10,11 @@ namespace Appraisr.Data
     public class Context : DbContext
     {
         public DbSet<Employee> Employees { get; set; }
+        public DbSet<Appraiser> Appraisers { get; set; }
         public DbSet<Office> Offices { get; set; }
         public DbSet<Client> Clients { get; set; }
+        public DbSet<Order> Orders { get; set; }
+        public DbSet<Report> Reports { get; set; }
 
         public Context()
         {

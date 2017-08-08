@@ -27,7 +27,7 @@ namespace Appraisr.Models
         [Display(Name = "Hire Date")]
         public DateTime HireDate { get; set; }
         [Display(Name = "Termination Date")]
-        public DateTime TerminationDate { get; set; }
+        public DateTime? TerminationDate { get; set; }
         [Display(Name = "Reason For Termination")]
         public string TerminationReason { get; set; }
         public int OfficeId { get; set; }
@@ -41,6 +41,15 @@ namespace Appraisr.Models
             get
             {
                 return $"{Office.Phone} Ext. {PhoneExt}";
+            }
+        }
+
+        [Display(Name = "Name")]
+        public string PrintName
+        {
+            get
+            {
+                return $"{FirstName} {LastName}";
             }
         }
     }   

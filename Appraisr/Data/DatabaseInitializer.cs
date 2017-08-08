@@ -11,6 +11,25 @@ namespace Appraisr.Data
     {
         protected override void Seed(Context context)
         {
+            var reportURAR = new Report()
+            {
+                Form = "URAR",
+                Description = "1004 Uniform Residential Appraisal Report",
+                Fee = 350.00M,
+                FhaCert = false,
+                VaCert = false
+            };
+            context.Reports.Add(reportURAR);
+
+            var report2055 = new Report()
+            {
+                Form = "2055",
+                Description = "2055 Interior Limited Summary Appraisal Report",
+                Fee = 325.00M,
+                FhaCert = false,
+                VaCert = false
+            };
+            context.Reports.Add(report2055);
 
             var NoOffice = new Office()
             {
@@ -35,7 +54,7 @@ namespace Appraisr.Data
                 Phone = "636-2121"
             };
 
-            var emp1 = new Employee()
+            var app1 = new Appraiser()
             {
                 FirstName = "Jim",
                 LastName  = "Smith",
@@ -45,11 +64,15 @@ namespace Appraisr.Data
                 HireDate = new DateTime(2012, 5, 1),
                 TerminationDate = new DateTime(1900, 1, 1),
                 Office = JCOffice,
-                Active = true
+                Active = true,
+                FhaApproved = true,
+                IsLicensed = true,
+                PayPercent = 50,
+                LicenseExp = new DateTime(2020, 1, 1)
             };
-            context.Employees.Add(emp1);
+            context.Appraisers.Add(app1);
 
-            var emp2 = new Employee()
+            var app2 = new Appraiser()
             {
                 FirstName = "Big",
                 LastName = "Bird",
@@ -59,9 +82,13 @@ namespace Appraisr.Data
                 HireDate = new DateTime(2013, 4, 1),
                 TerminationDate = new DateTime(1900, 1, 1),
                 Office = ComoOffice,
-                Active = true
+                Active = true,
+                FhaApproved = true,
+                IsLicensed = true,
+                PayPercent = 50,
+                LicenseExp = new DateTime(2020, 1, 1)
             };
-            context.Employees.Add(emp2);
+            context.Appraisers.Add(app2);
 
             var emp3 = new Employee()
             {
