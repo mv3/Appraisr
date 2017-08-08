@@ -15,6 +15,8 @@ namespace Appraisr.ViewModels.EmployeeViewModels
             Employee.Active = true;
         }
 
+        public bool IsAppraiser { get; set; }
+
         public override void Init(Context context)
         {
             base.Init(context);

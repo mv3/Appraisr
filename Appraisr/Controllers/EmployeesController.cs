@@ -45,11 +45,12 @@ namespace Appraisr.Controllers
             return View(employee);
         }
 
-        public ActionResult Add()
+        public ActionResult Add(bool isAppraiser)
         {
             var viewModel = new EmployeesAddViewModel();
 
             viewModel.Init(Context);
+            viewModel.IsAppraiser = isAppraiser;
 
             return View(viewModel);
         }
@@ -67,6 +68,37 @@ namespace Appraisr.Controllers
                 Context.SaveChanges();
 
                 TempData["Message"] = "Employee was successfully added!";
+
+                return RedirectToAction("Detail", new { id = employee.Id });
+            }
+
+            viewModel.Init(Context);
+
+            return View(viewModel);
+        }
+
+        public ActionResult AddAppraiser()
+        {
+            var viewModel = new EmployeesAddViewModel();
+
+            viewModel.Init(Context);
+
+            return View(viewModel);
+        }
+
+        [HttpPost]
+        public ActionResult AddAppraiser(EmployeesAddViewModel viewModel)
+        {
+            // ValidateEmployee(viewModel.Employee);
+
+            if (ModelState.IsValid)
+            {
+                var employee = viewModel.Employee;
+
+                Context.Employees.Add(employee);
+                Context.SaveChanges();
+
+                TempData["Message"] = "Appraiser was successfully added!";
 
                 return RedirectToAction("Detail", new { id = employee.Id });
             }

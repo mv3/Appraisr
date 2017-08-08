@@ -54,10 +54,10 @@ namespace Appraisr.Data
                 Phone = "636-2121"
             };
 
-            var app1 = new Appraiser()
+            var app1 = new Employee()
             {
                 FirstName = "Jim",
-                LastName  = "Smith",
+                LastName = "Smith",
                 PhoneCell = "555-5555",
                 PhoneExt = "555",
                 Email = "JSmith@Appraisr.com",
@@ -68,11 +68,12 @@ namespace Appraisr.Data
                 FhaApproved = true,
                 IsLicensed = true,
                 PayPercent = 50,
-                LicenseExp = new DateTime(2020, 1, 1)
+                LicenseExp = new DateTime(2020, 1, 1),
+                Role = "Appraiser"
             };
-            context.Appraisers.Add(app1);
+            context.Employees.Add(app1);
 
-            var app2 = new Appraiser()
+            var app2 = new Employee()
             {
                 FirstName = "Big",
                 LastName = "Bird",
@@ -86,9 +87,10 @@ namespace Appraisr.Data
                 FhaApproved = true,
                 IsLicensed = true,
                 PayPercent = 50,
-                LicenseExp = new DateTime(2020, 1, 1)
+                LicenseExp = new DateTime(2020, 1, 1),
+                Role = "Appraiser"
             };
-            context.Appraisers.Add(app2);
+            context.Employees.Add(app2);
 
             var emp3 = new Employee()
             {
@@ -101,7 +103,8 @@ namespace Appraisr.Data
                 TerminationDate = new DateTime(2015, 1, 1),
                 TerminationReason = "Grouchy",
                 Office = ComoOffice,
-                Active = false
+                Active = false,
+                Role = "Staff"
             };
             context.Employees.Add(emp3);
 
@@ -116,7 +119,8 @@ namespace Appraisr.Data
                 TerminationDate = new DateTime(1900, 1, 1),
                 TerminationReason = "",
                 Office = NoOffice,
-                Active = true
+                Active = true,
+                Role = "Staff"
             };
             context.Employees.Add(emp4);
 

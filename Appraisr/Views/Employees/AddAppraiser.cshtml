@@ -11,14 +11,10 @@
     @*@Html.ValidationSummary("The following errors were found:", new { @class = "alert alert-danger" })*@
 
 
-    <h3>Employee Information</h3>
+    <h3>Appraiser Information</h3>
 
     @Html.Partial("_EmployeeForm")
-    @if (Model.IsAppraiser)
-    {
-        @Model.Employee.Role = "Appraiser";
-        @Html.Partial("_AppraiserForm")
-    }
+    @Html.Partial("_AppraiserForm")
 
     <div class="row">
         <div class="col-md-12">
