@@ -16,11 +16,11 @@ namespace Appraisr.Models
         public int Id { get; set; }
         [Display(Name = "Address")]
         public string Address { get; set; }
-        [Display(Name = "City")]
+        [Display(Name = "City"), Required]
         public string City { get; set; }
         [Display(Name = "Zip Code")]
         public string Zip { get; set; }
-        [Display(Name = "Phone")]
+        [Display(Name = "Phone"), Required]
         public string Phone { get; set; }
 
         [Display(Name = "Office")]

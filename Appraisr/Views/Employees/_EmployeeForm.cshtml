@@ -36,10 +36,14 @@
             @Html.LabelFor(e => e.Employee.OfficeId, new { @class = "control-label" })
             @Html.DropDownListFor(e => e.Employee.OfficeId,
             Model.OfficesSelectListItems, "", new { @class = "form-control" })
+            @Html.ValidationMessageFor(e => e.Employee.OfficeId)
         </div>
     </div>
 
-
+@Html.HiddenFor(e => e.Employee.Active)
+@Html.HiddenFor(e => e.Employee.TerminationDate)
+@Html.HiddenFor(e => e.Employee.TerminationReason)
+@Html.HiddenFor(e => e.Employee.Role)
 
 
 

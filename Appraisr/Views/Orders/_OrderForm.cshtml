@@ -42,6 +42,8 @@
             @Html.TextBoxFor(o => o.Order.DatePaid, "{0:d}", new { @class = "form-control" })
             @Html.ValidationMessageFor(o => o.Order.DatePaid)
         </div>
+    </div>
+    <div class="col-md-6">
         <div class="form-group">
             @Html.LabelFor(o => o.Order.Address.Line1, new { @class = "control-label" })
             @Html.TextBoxFor(o => o.Order.Address.Line1, new { @class = "form-control" })
@@ -76,19 +78,22 @@
             @Html.LabelFor(o => o.Order.ClientId, new { @class = "control-label" })
             @Html.DropDownListFor(o => o.Order.ClientId,
             Model.ClientsSelectListItems, "", new { @class = "form-control" })
+            @Html.ValidationMessageFor(o => o.Order.ClientId)
         </div>
         <div class="form-group">
             @Html.LabelFor(o => o.Order.AppraiserId, new { @class = "control-label" })
             @Html.DropDownListFor(o => o.Order.AppraiserId,
             Model.AppraisersSelectListItems, "", new { @class = "form-control" })
+            @Html.ValidationMessageFor(o => o.Order.AppraiserId)
         </div>
         <div class="form-group">
             @Html.LabelFor(o => o.Order.ReportId, new { @class = "control-label" })
             @Html.DropDownListFor(o => o.Order.ReportId,
             Model.ReportsSelectListItems, "", new { @class = "form-control" })
+            @Html.ValidationMessageFor(o => o.Order.ReportId)
         </div>
 
-   
+
     </div>
 </div>
 

@@ -117,7 +117,7 @@ namespace Appraisr.Controllers
         [HttpPost]
         public ActionResult Add(EmployeesAddViewModel viewModel)
         {
-            // ValidateEmployee(viewModel.Employee);
+            ValidateEmployee(viewModel.Employee);
 
             if (ModelState.IsValid)
             {
@@ -162,7 +162,7 @@ namespace Appraisr.Controllers
         [HttpPost]
         public ActionResult Edit(EmployeesEditViewModel viewModel)
         {
-            // ValidateEmployee(viewModel.Employee);
+            ValidateEmployee(viewModel.Employee);
 
             if (ModelState.IsValid)
             {
@@ -206,8 +206,7 @@ namespace Appraisr.Controllers
         [HttpPost]
         public ActionResult Terminate(EmployeesEditViewModel viewModel)
         {
-            // ValidateEmployee(viewModel.Employee);
-
+            
             if (ModelState.IsValid)
             {
                 var employee = viewModel.Employee;
@@ -271,6 +270,27 @@ namespace Appraisr.Controllers
             TempData["Message"] = "The employee was successfully deleted!";
 
             return RedirectToAction("Index");
+        }
+
+        /// <summary>
+        /// Validates a record on the server
+        /// before adding a new record or updating an existing record.
+        /// </summary>
+        /// <param name="employee">The Employee to validate.</param>
+        private void ValidateEmployee(Employee employee)
+        {
+            // If there aren't any "Name" field validation errors...
+            if (ModelState.IsValidField("LastName") && ModelState.IsValidField("FirstName"))
+            {
+                // Then make sure that the provided Name is unique.
+                if (Context.Employees
+                        .Any(e => e.FirstName != employee.FirstName &&
+                                   e.LastName == employee.LastName))
+                {
+                    ModelState.AddModelError("FirstName",
+                        "An employee by this name already exists.");
+                }
+            }
         }
 
 

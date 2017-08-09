@@ -9,8 +9,7 @@
 @using (Html.BeginForm())
 {
     @*@Html.ValidationSummary("The following errors were found:", new { @class = "alert alert-danger" })*@
-
-
+    
     <h3>@Model.Employee.Role Information</h3>
 
     <div class="row">
@@ -21,11 +20,6 @@
             @Html.Partial("_AppraiserForm");
         }
     </div>
-
-    @Html.HiddenFor(e => e.Employee.Active)
-    @Html.HiddenFor(e => e.Employee.TerminationDate)
-    @Html.HiddenFor(e => e.Employee.TerminationReason)
-    @Html.HiddenFor(e => e.Employee.Role)
 
     <div class="row">
         <div class="col-md-12">

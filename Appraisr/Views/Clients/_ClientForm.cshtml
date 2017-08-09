@@ -21,17 +21,19 @@
             @Html.LabelFor(c => c.Client.Address.City, new { @class = "control-label" })
             @Html.TextBoxFor(c => c.Client.Address.City, new { @class = "form-control" })
             @Html.ValidationMessageFor(c => c.Client.Address.City)
-        </div>        
+        </div>
         <div class="form-group">
             @Html.LabelFor(c => c.Client.Address.State, new { @class = "control-label" })
             @Html.TextBoxFor(c => c.Client.Address.State, new { @class = "form-control" })
             @Html.ValidationMessageFor(c => c.Client.Address.State)
-        </div>  
+        </div>
+    </div>
+    <div class="col-md-6">
         <div class="form-group">
             @Html.LabelFor(c => c.Client.Address.ZipCode, new { @class = "control-label" })
             @Html.TextBoxFor(c => c.Client.Address.ZipCode, new { @class = "form-control" })
             @Html.ValidationMessageFor(c => c.Client.Address.ZipCode)
-        </div>  
+        </div>
         <div class="form-group">
             @Html.LabelFor(c => c.Client.Phone, new { @class = "control-label" })
             @Html.TextBoxFor(c => c.Client.Phone, new { @class = "form-control" })
@@ -46,12 +48,12 @@
             @Html.LabelFor(c => c.Client.Type, new { @class = "control-label" })
             @Html.TextBoxFor(c => c.Client.Type, new { @class = "form-control" })
             @Html.ValidationMessageFor(c => c.Client.Type)
-        </div> 
+        </div>
         <div class="form-group">
             @Html.LabelFor(c => c.Client.SpecialInstructions, new { @class = "control-label" })
             @Html.TextAreaFor(c => c.Client.SpecialInstructions, 4, 7, new { @class = "form-control" })
             @Html.ValidationMessageFor(c => c.Client.SpecialInstructions)
-        </div> 
+        </div>
     </div>
 </div>
 
