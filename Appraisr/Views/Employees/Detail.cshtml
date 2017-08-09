@@ -1,12 +1,12 @@
 ﻿@model Appraisr.Models.Employee
 
 @{
-    ViewBag.Title = "Employee Detail";
+    ViewBag.Title = Model.Role + " Detail";
 }
 
 @Html.Partial("_Message")
 
-<h2>@Model.FirstName @Model.LastName</h2>
+<h2>@Model.FirstName @Model.LastName - @Model.Role</h2>
 
 <div class="row">
     <div class="col-md-6">
@@ -36,10 +36,12 @@
         </div>
         <div class="row">
             <div class="col-xs-4 col-sm-4">
-                @Html.LabelFor(e => e.OfficePhone)
+                <label>
+                    Office Phone
+                </label>
             </div>
             <div class="col-xs-8 col-sm-8">
-                @Model.OfficePhone
+                @Model.Office.Phone Ext.@Model.PhoneExt
             </div>
         </div>
         <div class="row">
@@ -95,12 +97,30 @@
         }
 
     </div>    
+
+    @if (Model.Role == "Appraiser")
+    {
+        @Html.Partial("_AppraiserDetail");
+    }
 </div>
+
 
 <div class="pad-top">
     <a href="@Url.Action("Edit", new { id = Model.Id })" class="btn btn-primary btn-lg margin-right">
         <span class="glyphicon glyphicon-edit"></span> Edit
     </a>
+    @if (Model.Role == "Staff")
+    { 
+        <a href="@Url.Action("Promote", new { id = Model.Id })" class="btn btn-info btn-lg">
+            <span class="glyphicon glyphicon-arrow-up"></span> Promote Appraiser
+        </a>
+    }
+    else
+    {
+        <a href="@Url.Action("Demote", new { id = Model.Id })" class="btn btn-warning btn-lg">
+            <span class="glyphicon glyphicon-arrow-down"></span> Demote Appraiser
+        </a>
+    }
     @if (Model.Active)
     {
         @:<a href="@Url.Action("Terminate", new { id = Model.Id })" class="btn btn-warning btn-lg margin-right">

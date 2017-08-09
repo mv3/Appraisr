@@ -7,6 +7,6 @@ namespace Appraisr.Models
 {
     public class Administrator : Employee
     {
-        public string Role { get; set; }
+
     }
 }

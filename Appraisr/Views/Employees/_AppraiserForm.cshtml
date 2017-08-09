@@ -1,11 +1,12 @@
 ﻿@model Appraisr.ViewModels.EmployeeViewModels.EmployeesBaseViewModel
 
-<div class="row">
     <div class="col-md-6">
         <div class="form-group">
-            @Html.LabelFor(e => e.Employee.IsLicensed, new { @class = "control-label" })
-            @Html.TextBoxFor(e => e.Employee.IsLicensed, new { @class = "form-control" })
-            @Html.ValidationMessageFor(e => e.Employee.IsLicensed)
+            <div class="checkbox">
+                <label>
+                    @Html.CheckBoxFor(e => e.Employee.IsLicensed) @Html.DisplayNameFor(e => e.Employee.IsLicensed)
+                </label>
+            </div>
         </div>
         <div class="form-group">
             @Html.LabelFor(e => e.Employee.LicenseType, new { @class = "control-label" })
@@ -17,22 +18,26 @@
             @Html.TextBoxFor(e => e.Employee.LicenseNo, new { @class = "form-control" })
             @Html.ValidationMessageFor(e => e.Employee.LicenseNo)
         </div>
+        
         <div class="form-group">
-            @Html.LabelFor(e => e.Employee.LicenseExp, new { @class = "control-label" })
-            @Html.TextBoxFor(e => e.Employee.LicenseExp, "{0:d}", new { @class = "form-control" })
-            @Html.ValidationMessageFor(e => e.Employee.LicenseExp)
+            <div class="checkbox">
+                <label>
+                    @Html.CheckBoxFor(e => e.Employee.FhaApproved) @Html.DisplayNameFor(e => e.Employee.FhaApproved)
+                </label>
+            </div>
         </div>
         <div class="form-group">
-            @Html.LabelFor(e => e.Employee.FhaApproved, new { @class = "control-label" })
-            @Html.TextBoxFor(e => e.Employee.FhaApproved, new { @class = "form-control" })
-            @Html.ValidationMessageFor(e => e.Employee.FhaApproved)
+            <div class="checkbox">
+                <label>
+                    @Html.CheckBoxFor(e => e.Employee.VaApproved) @Html.DisplayNameFor(e => e.Employee.VaApproved)
+                </label>
+            </div>
         </div>
-        <div class="form-group">
+        @*<div class="form-group">
             @Html.LabelFor(e => e.Employee.Supervisor.Id, new { @class = "control-label" })
-            @Html.TextBoxFor(e => e.Employee.Supervisor.Id, new { @class = "form-control datepicker" })
             @Html.DropDownListFor(e => e.Employee.Supervisor.Id,
             Model.SuperSelectListItems, "", new { @class = "form-control" })
-        </div>
+        </div>*@
         <div class="form-group">
             @Html.LabelFor(e => e.Employee.WorkloadLimit, new { @class = "control-label" })
             @Html.TextBoxFor(e => e.Employee.WorkloadLimit, new { @class = "form-control" })
@@ -44,5 +49,5 @@
             @Html.ValidationMessageFor(e => e.Employee.PayPercent)
         </div>
     </div>
-</div>
+
 

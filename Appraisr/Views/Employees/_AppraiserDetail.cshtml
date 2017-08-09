@@ -1,0 +1,60 @@
+﻿@model Appraisr.Models.Employee
+
+<div class="col-md-6">
+    <div class="row">
+        <div class="col-xs-4 col-sm-4">
+            @Html.LabelFor(e => e.IsLicensed)
+        </div>
+        <div class="col-xs-8 col-sm-8">
+            @Model.IsLicensed
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-4 col-sm-4">
+            @Html.LabelFor(e => e.LicenseType)
+        </div>
+        <div class="col-xs-8 col-sm-8">
+            @Model.LicenseType
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-4 col-sm-4">
+            @Html.LabelFor(e => e.LicenseNo)
+        </div>
+        <div class="col-xs-8 col-sm-8">
+            @Model.LicenseNo
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-4 col-sm-4">
+            @Html.LabelFor(e => e.FhaApproved)
+        </div>
+        <div class="col-xs-8 col-sm-8">
+            @Model.FhaApproved
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-4 col-sm-4">
+            @Html.LabelFor(e => e.VaApproved)
+        </div>
+        <div class="col-xs-8 col-sm-8">
+            @Model.VaApproved
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-4 col-sm-4">
+            @Html.LabelFor(e => e.WorkloadLimit)
+        </div>
+        <div class="col-xs-8 col-sm-8">
+            @Model.WorkloadLimit
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-4 col-sm-4">
+            @Html.LabelFor(e => e.PayPercent)
+        </div>
+        <div class="col-xs-8 col-sm-8">
+            @Model.PayPercent
+        </div>
+    </div>
+</div>

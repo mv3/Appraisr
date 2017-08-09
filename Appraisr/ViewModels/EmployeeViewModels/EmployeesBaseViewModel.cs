@@ -13,7 +13,7 @@ namespace Appraisr.ViewModels.EmployeeViewModels
         public Employee Employee { get; set; } = new Employee();
 
         public SelectList OfficesSelectListItems { get; set; }
-        public SelectList SuperSelectListItems { get; set; }
+        //public SelectList SuperSelectListItems { get; set; }
 
 
         public virtual void Init(Context context)
@@ -22,11 +22,11 @@ namespace Appraisr.ViewModels.EmployeeViewModels
                 context.Offices.OrderBy(o => o.City)
                 .ToList(), "Id", "City");
 
-            SuperSelectListItems = new SelectList(
-                context.Employees.Where(o => o.Role == "Appraiser")
-                .OrderBy(o => o.LastName)
-                .ThenBy(o => o.LastName)
-                .ToList(), "Id", "PrintName");
+            //SuperSelectListItems = new SelectList(
+            //    context.Employees.Where(o => o.Role == "Appraiser")
+            //    .OrderBy(o => o.LastName)
+            //    .ThenBy(o => o.LastName)
+            //    .ToList(), "Id", "PrintName");
         }
     }
 }

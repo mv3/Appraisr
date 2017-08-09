@@ -45,14 +45,73 @@ namespace Appraisr.Controllers
             return View(employee);
         }
 
-        public ActionResult Add(bool isAppraiser)
+        public ActionResult Promote(int? id)
         {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+            var employee = _empRepo.Get((int)id);
+
+            if (employee == null)
+            {
+                return HttpNotFound();
+            }
+
+            employee.Role = "Appraiser";
+            _empRepo.Update(employee);
+
+            TempData["Message"] = "Employee was successfully promoted to Appraiser!";
+
+            return RedirectToAction("Detail", new { id = employee.Id });
+        }
+
+        public ActionResult Demote(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+            var employee = _empRepo.Get((int)id);
+
+            if (employee == null)
+            {
+                return HttpNotFound();
+            }
+
+            employee.Role = "Staff";
+            _empRepo.Update(employee);
+
+            TempData["Message"] = "Employee was successfully demoted to Staff.";
+
+            return RedirectToAction("Detail", new { id = employee.Id });
+        }
+
+        public ActionResult Add()
+        {            
             var viewModel = new EmployeesAddViewModel();
 
             viewModel.Init(Context);
-            viewModel.IsAppraiser = isAppraiser;
+            
+            if(TempData["Role"] != null)
+            {
+                viewModel.Employee.Role = TempData["Role"].ToString();
+            }
+            else
+            {
+                viewModel.Employee.Role = "Staff";
+            }
 
             return View(viewModel);
+        }
+
+        public ActionResult AddAppraiser()
+        {
+            TempData["Role"] = "Appraiser";            
+
+            return RedirectToAction("Add");
         }
 
         [HttpPost]
@@ -75,38 +134,7 @@ namespace Appraisr.Controllers
             viewModel.Init(Context);
 
             return View(viewModel);
-        }
-
-        public ActionResult AddAppraiser()
-        {
-            var viewModel = new EmployeesAddViewModel();
-
-            viewModel.Init(Context);
-
-            return View(viewModel);
-        }
-
-        [HttpPost]
-        public ActionResult AddAppraiser(EmployeesAddViewModel viewModel)
-        {
-            // ValidateEmployee(viewModel.Employee);
-
-            if (ModelState.IsValid)
-            {
-                var employee = viewModel.Employee;
-
-                Context.Employees.Add(employee);
-                Context.SaveChanges();
-
-                TempData["Message"] = "Appraiser was successfully added!";
-
-                return RedirectToAction("Detail", new { id = employee.Id });
-            }
-
-            viewModel.Init(Context);
-
-            return View(viewModel);
-        }
+        }       
 
         public ActionResult Edit(int? id)
         {

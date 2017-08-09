@@ -68,7 +68,6 @@ namespace Appraisr.Data
                 FhaApproved = true,
                 IsLicensed = true,
                 PayPercent = 50,
-                LicenseExp = new DateTime(2020, 1, 1),
                 Role = "Appraiser"
             };
             context.Employees.Add(app1);
@@ -87,7 +86,6 @@ namespace Appraisr.Data
                 FhaApproved = true,
                 IsLicensed = true,
                 PayPercent = 50,
-                LicenseExp = new DateTime(2020, 1, 1),
                 Role = "Appraiser"
             };
             context.Employees.Add(app2);

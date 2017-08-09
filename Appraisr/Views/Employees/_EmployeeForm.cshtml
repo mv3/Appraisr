@@ -1,6 +1,6 @@
 ﻿@model Appraisr.ViewModels.EmployeeViewModels.EmployeesBaseViewModel
 
-<div class="row">
+
     <div class="col-md-6">
         <div class="form-group">
             @Html.LabelFor(e => e.Employee.FirstName, new { @class = "control-label" })
@@ -38,10 +38,8 @@
             Model.OfficesSelectListItems, "", new { @class = "form-control" })
         </div>
     </div>
-</div>
 
-@Html.HiddenFor(e => e.Employee.Active)
-@Html.HiddenFor(e => e.Employee.TerminationDate)
-@Html.HiddenFor(e => e.Employee.TerminationReason)
+
+
 
 

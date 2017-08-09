@@ -324,7 +324,6 @@
     <Content Include="Views\Employees\Delete.cshtml" />
     <Content Include="Views\Shared\_Message.cshtml" />
     <Content Include="Views\Employees\Terminate.cshtml" />
-    <Content Include="Views\Employees\Reactivate.cshtml" />
     <Content Include="Views\Offices\Index.cshtml" />
     <Content Include="Views\Offices\_OfficeForm.cshtml" />
     <Content Include="Views\Offices\Add.cshtml" />
@@ -345,7 +344,7 @@
     <Content Include="Views\Orders\Edit.cshtml" />
     <Content Include="Views\Orders\Index.cshtml" />
     <Content Include="Views\Employees\_AppraiserForm.cshtml" />
-    <Content Include="Views\Employees\AddAppraiser.cshtml" />
+    <Content Include="Views\Employees\_AppraiserDetail.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

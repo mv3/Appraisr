@@ -1,7 +1,7 @@
 ﻿@model Appraisr.ViewModels.EmployeeViewModels.EmployeesAddViewModel
 
 @{
-    ViewBag.Title = "Add Employee";
+    ViewBag.Title = "Add " + Model.Employee.Role;
 }
 
 <h2>@ViewBag.Title</h2>
@@ -11,14 +11,21 @@
     @*@Html.ValidationSummary("The following errors were found:", new { @class = "alert alert-danger" })*@
 
 
-    <h3>Employee Information</h3>
+    <h3>@Model.Employee.Role Information</h3>
 
-    @Html.Partial("_EmployeeForm")
-    @if (Model.IsAppraiser)
-    {
-        @Model.Employee.Role = "Appraiser";
-        @Html.Partial("_AppraiserForm")
-    }
+    <div class="row">
+        @Html.Partial("_EmployeeForm")
+
+        @if (Model.Employee.Role == "Appraiser")
+        {
+            @Html.Partial("_AppraiserForm");
+        }
+    </div>
+
+    @Html.HiddenFor(e => e.Employee.Active)
+    @Html.HiddenFor(e => e.Employee.TerminationDate)
+    @Html.HiddenFor(e => e.Employee.TerminationReason)
+    @Html.HiddenFor(e => e.Employee.Role)
 
     <div class="row">
         <div class="col-md-12">
