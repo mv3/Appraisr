@@ -1,60 +1,61 @@
-﻿@model Appraisr.Models.Employee
+﻿@model Appraisr.ViewModels.EmployeeViewModels.EmployeeDetailViewModel
 
 <div class="col-md-6">
     <div class="row">
         <div class="col-xs-4 col-sm-4">
-            @Html.LabelFor(e => e.IsLicensed)
+            @Html.LabelFor(e => e.Employee.IsLicensed)
         </div>
         <div class="col-xs-8 col-sm-8">
-            @Model.IsLicensed
+            @Model.Employee.IsLicensed
         </div>
     </div>
     <div class="row">
         <div class="col-xs-4 col-sm-4">
-            @Html.LabelFor(e => e.LicenseType)
+            @Html.LabelFor(e => e.Employee.LicenseType)
         </div>
         <div class="col-xs-8 col-sm-8">
-            @Model.LicenseType
+            @Model.Employee.LicenseType
         </div>
     </div>
     <div class="row">
         <div class="col-xs-4 col-sm-4">
-            @Html.LabelFor(e => e.LicenseNo)
+            @Html.LabelFor(e => e.Employee.LicenseNo)
         </div>
         <div class="col-xs-8 col-sm-8">
-            @Model.LicenseNo
+            @Model.Employee.LicenseNo
         </div>
     </div>
     <div class="row">
         <div class="col-xs-4 col-sm-4">
-            @Html.LabelFor(e => e.FhaApproved)
+            @Html.LabelFor(e => e.Employee.FhaApproved)
         </div>
         <div class="col-xs-8 col-sm-8">
-            @Model.FhaApproved
+            @Model.Employee.FhaApproved
         </div>
     </div>
     <div class="row">
         <div class="col-xs-4 col-sm-4">
-            @Html.LabelFor(e => e.VaApproved)
+            @Html.LabelFor(e => e.Employee.VaApproved)
         </div>
         <div class="col-xs-8 col-sm-8">
-            @Model.VaApproved
+            @Model.Employee.VaApproved
         </div>
     </div>
     <div class="row">
         <div class="col-xs-4 col-sm-4">
-            @Html.LabelFor(e => e.WorkloadLimit)
+            @Html.LabelFor(e => e.Employee.WorkloadLimit)
         </div>
         <div class="col-xs-8 col-sm-8">
-            @Model.WorkloadLimit
+            @Model.Employee.WorkloadLimit
         </div>
     </div>
     <div class="row">
         <div class="col-xs-4 col-sm-4">
-            @Html.LabelFor(e => e.PayPercent)
+            @Html.LabelFor(e => e.Employee.PayPercent)
         </div>
         <div class="col-xs-8 col-sm-8">
-            @Model.PayPercent
+            @Model.Employee.PayPercent
         </div>
     </div>
 </div>
+

@@ -42,7 +42,12 @@ namespace Appraisr.Controllers
                 return HttpNotFound();
             }
 
-            return View(employee);
+            var viewModel = new EmployeeDetailViewModel()
+            {
+                Employee = employee
+            };
+
+            return View(viewModel);
         }
 
         public ActionResult Promote(int? id)

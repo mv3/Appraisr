@@ -175,6 +175,7 @@
     <Compile Include="ViewModels\ClientViewModels\ClientAddViewModel.cs" />
     <Compile Include="ViewModels\ClientViewModels\ClientBaseViewModel.cs" />
     <Compile Include="ViewModels\ClientViewModels\ClientEditViewModel.cs" />
+    <Compile Include="ViewModels\EmployeeViewModels\EmployeeDetailViewModel.cs" />
     <Compile Include="ViewModels\EmployeeViewModels\EmployeesAddViewModel.cs" />
     <Compile Include="ViewModels\EmployeeViewModels\EmployeesBaseViewModel.cs" />
     <Compile Include="ViewModels\EmployeeViewModels\EmployeesEditViewModel.cs" />
@@ -212,6 +213,7 @@
     <Content Include="Scripts\jquery-3.1.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.1.1.min.map" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.bootstrap.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
@@ -328,6 +330,7 @@
     <Content Include="Views\Orders\Index.cshtml" />
     <Content Include="Views\Employees\_AppraiserForm.cshtml" />
     <Content Include="Views\Employees\_AppraiserDetail.cshtml" />
+    <Content Include="Views\Employees\_AppraiserOrders.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

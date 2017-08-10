@@ -52,6 +52,8 @@ namespace Appraisr.Models
         public int PayPercent { get; set; }
         public string Role { get; set; }
 
+        public ICollection<Order> Orders { get; set; }
+
         [Display(Name = "Name")]
         public string PrintName
         {

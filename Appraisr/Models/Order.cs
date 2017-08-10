@@ -10,7 +10,7 @@ namespace Appraisr.Models
     {
         public int Id { get; set; }
         [Display(Name = "Order Number"), Required]
-        public int OrderNumber { get; set; }
+        public string OrderNumber { get; set; }
         [Display(Name = "Date Ordered")]
         public DateTime DateOrdered { get; set; }
         [Display(Name = "Date Inspected")]

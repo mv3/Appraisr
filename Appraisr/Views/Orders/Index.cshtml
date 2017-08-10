@@ -19,6 +19,10 @@
         <tr>
             <th>Order</th>
             <th>Client</th>
+            <th>Date Ordered</th>
+            <th>Date Completed</th>
+            <th>Appraiser</th>
+            <th>Report</th>
             <th>&nbsp;</th>
         </tr>
     </thead>
@@ -27,7 +31,11 @@
         {
             <tr>
                 <td>@order.OrderNumber</td>
-                <td>@order.Client.Name</td>
+                <td><a href="@Url.Action("Detail","Clients", new { id = order.Client.Id })">@order.Client.Name</a></td>
+                <td>@order.DateOrdered</td>
+                <td>@order.DateCompleted</td>
+                <td><a href="@Url.Action("Detail","Employees", new { id = order.Appraiser.Id })">@order.Appraiser.PrintName</a></td>
+                <td>@order.Report.Form</td>
                 <td>
                     <div class="pull-right">
                         <a href="@Url.Action("Detail", new { id = order.Id })" class="btn btn-primary btn-xs margin-right">

@@ -62,7 +62,6 @@ namespace Appraisr.Data
                 PhoneExt = "555",
                 Email = "JSmith@Appraisr.com",
                 HireDate = new DateTime(2012, 5, 1),
-                TerminationDate = new DateTime(1900, 1, 1),
                 Office = JCOffice,
                 Active = true,
                 FhaApproved = true,
@@ -80,7 +79,6 @@ namespace Appraisr.Data
                 PhoneExt = "123",
                 Email = "BBird@Appraisr.com",
                 HireDate = new DateTime(2013, 4, 1),
-                TerminationDate = new DateTime(1900, 1, 1),
                 Office = ComoOffice,
                 Active = true,
                 FhaApproved = true,
@@ -114,7 +112,6 @@ namespace Appraisr.Data
                 PhoneExt = "111",
                 Email = "LWorker@Appraisr.com",
                 HireDate = new DateTime(2014, 6, 1),
-                TerminationDate = new DateTime(1900, 1, 1),
                 TerminationReason = "",
                 Office = NoOffice,
                 Active = true,
@@ -127,7 +124,7 @@ namespace Appraisr.Data
                 Name = "Acme Bank",
                 Phone = "444-4444",
                 Email = "Orders@AcmeBank.com",
-                Type = "Morgage",
+                Type = "Bank",
                 SpecialInstructions = "",
                 Address = new Address()
                 {
@@ -139,6 +136,116 @@ namespace Appraisr.Data
                 }
             };
             context.Clients.Add(client1);
+
+            var client2 = new Client()
+            {
+                Name = "Acme Mortgage",
+                Phone = "555-5555",
+                Email = "Orders@AcmeMortgage.com",
+                Type = "Morgage",
+                SpecialInstructions = "",
+                Address = new Address()
+                {
+                    Line1 = "134 Mortgage Lane",
+                    Line2 = "",
+                    City = "Jeffesron City",
+                    State = "MO",
+                    ZipCode = "65101"
+                }
+            };
+            context.Clients.Add(client2);
+
+            var order1 = new Order()
+            {
+                OrderNumber = "17-0001",
+                DateOrdered = new DateTime(2017, 6, 1),
+                DateInspected = new DateTime(2017, 6, 2),
+                DateCompleted = new DateTime(2017, 6, 3),
+                DateDue = new DateTime(2017, 6, 7),
+                DateDelivered = new DateTime(2017, 6, 4),
+                DateInvoiced = new DateTime(2017, 6, 4),
+                DatePaid = new DateTime(2017, 6, 5),
+                Address = new Address()
+                    {
+                        Line1 = "456 Street Road",
+                        Line2 = "",
+                        City = "Jeffesron City",
+                        State = "MO",
+                        ZipCode = "65101"
+                    },
+                Client = client1,
+                Appraiser = app1,
+                AppraisedValue = 90000.00M,
+                Report = reportURAR
+            };
+            context.Orders.Add(order1);
+
+            var order2 = new Order()
+            {
+                OrderNumber = "17-0002",
+                DateOrdered = new DateTime(2017, 6, 2),
+                DateInspected = new DateTime(2017, 6, 3),
+                DateCompleted = new DateTime(2017, 6, 4),
+                DateDue = new DateTime(2017, 6, 8),
+                DateDelivered = new DateTime(2017, 6, 5),
+                DateInvoiced = new DateTime(2017, 6, 5),
+                DatePaid = new DateTime(2017, 6, 6),
+                Address = new Address()
+                {
+                    Line1 = "923 Road Street",
+                    Line2 = "",
+                    City = "Jeffesron City",
+                    State = "MO",
+                    ZipCode = "65101"
+                },
+                Client = client1,
+                Appraiser = app1,
+                AppraisedValue = 120000.00M,
+                Report = reportURAR
+            };
+            context.Orders.Add(order2);
+
+            var order3 = new Order()
+            {
+                OrderNumber = "17-0003",
+                DateOrdered = new DateTime(2017, 6, 2),
+                DateDue = new DateTime(2017, 6, 8),
+                Address = new Address()
+                {
+                    Line1 = "445 Road Court",
+                    Line2 = "",
+                    City = "Jeffesron City",
+                    State = "MO",
+                    ZipCode = "65101"
+                },
+                Client = client2,
+                Appraiser = app1,
+                AppraisedValue = 120000.00M,
+                Report = report2055
+            };
+            context.Orders.Add(order3);
+
+            var order4 = new Order()
+            {
+                OrderNumber = "17-0004",
+                DateOrdered = new DateTime(2017, 6, 2),
+                DateDue = new DateTime(2017, 6, 8),
+                Address = new Address()
+                {
+                    Line1 = "867 Road Place",
+                    Line2 = "",
+                    City = "Columbia",
+                    State = "MO",
+                    ZipCode = "65201"
+                },
+                Client = client1,
+                Appraiser = app2,
+                AppraisedValue = 120000.00M,
+                Report = reportURAR
+            };
+            context.Orders.Add(order4);
+
+
 
             context.SaveChanges();
 

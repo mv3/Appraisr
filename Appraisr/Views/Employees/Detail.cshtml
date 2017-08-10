@@ -1,37 +1,37 @@
-﻿@model Appraisr.Models.Employee
+﻿@model Appraisr.ViewModels.EmployeeViewModels.EmployeeDetailViewModel
 
 @{
-    ViewBag.Title = Model.Role + " Detail";
+    ViewBag.Title = Model.Employee.Role + " Detail";
 }
 
 @Html.Partial("_Message")
 
-<h2>@Model.FirstName @Model.LastName - @Model.Role</h2>
+<h2>@Model.Employee.FirstName @Model.Employee.LastName - @Model.Employee.Role</h2>
 
 <div class="row">
     <div class="col-md-6">
         <div class="row">
             <div class="col-xs-4 col-sm-4">
-                @Html.LabelFor(e => e.FirstName)
+                @Html.LabelFor(e => e.Employee.FirstName)
             </div>
             <div class="col-xs-8 col-sm-8">
-                @Model.FirstName
+                @Model.Employee.FirstName
             </div>
         </div>
         <div class="row">
             <div class="col-xs-4 col-sm-4">
-                @Html.LabelFor(e => e.LastName)
+                @Html.LabelFor(e => e.Employee.LastName)
             </div>
             <div class="col-xs-8 col-sm-8">
-                @Model.LastName
+                @Model.Employee.LastName
             </div>
         </div>
         <div class="row">
             <div class="col-xs-4 col-sm-4">
-                @Html.LabelFor(e => e.PhoneCell)
+                @Html.LabelFor(e => e.Employee.PhoneCell)
             </div>
             <div class="col-xs-8 col-sm-8">
-                @Model.PhoneCell
+                @Model.Employee.PhoneCell
             </div>
         </div>
         <div class="row">
@@ -41,99 +41,105 @@
                 </label>
             </div>
             <div class="col-xs-8 col-sm-8">
-                @Model.Office.Phone Ext.@Model.PhoneExt
+                @Model.Employee.Office.Phone Ext.@Model.Employee.PhoneExt
             </div>
         </div>
         <div class="row">
             <div class="col-xs-4 col-sm-4">
-                @Html.LabelFor(e => e.Email)
+                @Html.LabelFor(e => e.Employee.Email)
             </div>
             <div class="col-xs-8 col-sm-8">
-                @Model.Email
+                @Model.Employee.Email
             </div>
         </div>
         <div class="row">
             <div class="col-xs-4 col-sm-4">
-                @Html.LabelFor(e => e.HireDate)
+                @Html.LabelFor(e => e.Employee.HireDate)
             </div>
             <div class="col-xs-8 col-sm-8">
-                @Model.HireDate.ToShortDateString()
+                @Model.Employee.HireDate.ToShortDateString()
             </div>
         </div>        
         <div class="row">
             <div class="col-xs-4 col-sm-4">
-                @Html.LabelFor(e => e.Office.OfficeName)
+                @Html.LabelFor(e => e.Employee.Office.OfficeName)
             </div>
             <div class="col-xs-8 col-sm-8">
-                @Model.Office.OfficeName
+                @Model.Employee.Office.OfficeName
             </div>
         </div>
         <div class="row">
             <div class="col-xs-4 col-sm-4">
-                @Html.LabelFor(e => e.Active)
+                @Html.LabelFor(e => e.Employee.Active)
             </div>
-            <div class="col-xs-8 col-sm-8">
-                @(Model.Active ? "Active" : "Inactive")
+            <div class="col-xs-8 col-sm-8" style="@(Model.Employee.Active ? "color:green" : "color:red")">
+                @(Model.Employee.Active ? "Active" : "Inactive")
             </div>
         </div>
-        @if (!Model.Active)
+        @if (!Model.Employee.Active)
         {
-            <div class="row">
-                <div class="col-xs-4 col-sm-4">
-                    @Html.LabelFor(e => e.TerminationDate)
+            <div class="well">
+                <div class="row">
+                    <div class="col-xs-4 col-sm-4">
+                        @Html.LabelFor(e => e.Employee.TerminationDate)
+                    </div>
+                    <div class="col-xs-8 col-sm-8">
+                        @string.Format("{0:MM/dd/yyyy}", Model.Employee.TerminationDate)
+                    </div>
                 </div>
-                <div class="col-xs-8 col-sm-8">
-                    @string.Format("{0:MM/dd/yyyy}", Model.TerminationDate)
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-xs-4 col-sm-4">
-                    @Html.LabelFor(e => e.TerminationReason)
-                </div>
-                <div class="col-xs-8 col-sm-8">
-                    @Model.TerminationReason
+                <div class="row">
+                    <div class="col-xs-4 col-sm-4">
+                        @Html.LabelFor(e => e.Employee.TerminationReason)
+                    </div>
+                    <div class="col-xs-8 col-sm-8">
+                        @Model.Employee.TerminationReason
+                    </div>
                 </div>
             </div>
         }
 
     </div>    
 
-    @if (Model.Role == "Appraiser")
+    @if (Model.Employee.Role == "Appraiser")
     {
         @Html.Partial("_AppraiserDetail");
     }
 </div>
 
+@if (Model.Employee.Role == "Appraiser")
+{
+    @Html.Partial("_AppraiserOrders");
+}
 
 <div class="pad-top">
-    <a href="@Url.Action("Edit", new { id = Model.Id })" class="btn btn-primary btn-lg margin-right">
+    <a href="@Url.Action("Edit", new { id = Model.Employee.Id })" class="btn btn-primary btn-lg margin-right">
         <span class="glyphicon glyphicon-edit"></span> Edit
     </a>
-    @if (Model.Role == "Staff")
+    @if (Model.Employee.Role == "Staff")
     { 
-        <a href="@Url.Action("Promote", new { id = Model.Id })" class="btn btn-info btn-lg">
+        <a href="@Url.Action("Promote", new { id = Model.Employee.Id })" class="btn btn-info btn-lg">
             <span class="glyphicon glyphicon-arrow-up"></span> Promote Appraiser
         </a>
     }
     else
     {
-        <a href="@Url.Action("Demote", new { id = Model.Id })" class="btn btn-warning btn-lg">
+        <a href="@Url.Action("Demote", new { id = Model.Employee.Id })" class="btn btn-warning btn-lg">
             <span class="glyphicon glyphicon-arrow-down"></span> Demote Appraiser
         </a>
     }
-    @if (Model.Active)
+    @if (Model.Employee.Active)
     {
-        @:<a href="@Url.Action("Terminate", new { id = Model.Id })" class="btn btn-warning btn-lg margin-right">
+        @:<a href="@Url.Action("Terminate", new { id = Model.Employee.Id })" class="btn btn-danger btn-lg margin-right">
         @:<span class="glyphicon glyphicon-remove"></span> Terminate</a>
     }
     else
     {
-        @:<a href="@Url.Action("Reactivate", new { id = Model.Id })" class="btn btn-warning btn-lg margin-right">
+        @:<a href="@Url.Action("Reactivate", new { id = Model.Employee.Id })" class="btn btn-success btn-lg margin-right">
         @:<span class="glyphicon glyphicon-repeat"></span> Reactivate</a>
     }
 
 
-    <a href="@Url.Action("Delete", new { id = Model.Id })" class="btn btn-danger btn-lg margin-right">
+    <a href="@Url.Action("Delete", new { id = Model.Employee.Id })" class="btn btn-danger btn-lg margin-right">
         <span class="glyphicon glyphicon-trash"></span> Delete
     </a>    
     <a href="@Url.Action("Index")" class="btn btn-default btn-lg">

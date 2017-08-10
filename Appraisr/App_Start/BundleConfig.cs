@@ -11,7 +11,8 @@ namespace Appraisr
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
                         "~/Scripts/jquery-3.1.1.min.js",
                         "~/Scripts/jquery.validate.min.js",
-                        "~/Scripts/jquery.validate.unobtrusive.min.js"));
+                        "~/Scripts/jquery.validate.unobtrusive.min.js",
+                        "~/Scripts/jquery.validate.bootstrap.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
                         "~/Scripts/jquery.validate*"));
@@ -23,7 +24,6 @@ namespace Appraisr
 
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
                       "~/Scripts/bootstrap.min.js",
-                      //"~/Scripts/respond.js",
                       "~/Scripts/bootstrap-datepicker.min.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
