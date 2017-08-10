@@ -18,5 +18,7 @@ namespace Appraisr.Models
         public string Type { get; set; }
         [Display(Name = "Special Instructions")]
         public string SpecialInstructions { get; set; }
+
+        public ICollection<Order> Orders { get; set; }
     }
 }

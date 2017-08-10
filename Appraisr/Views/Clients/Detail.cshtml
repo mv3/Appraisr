@@ -60,6 +60,8 @@
                 @Model.Address.ZipCode
             </div>
         </div>
+    </div>
+    <div class="col-md-6">
         <div class="row">
             <div class="col-xs-4 col-sm-4">
                 @Html.LabelFor(c => c.Phone)
@@ -78,10 +80,10 @@
         </div>
         <div class="row">
             <div class="col-xs-4 col-sm-4">
-                @Html.LabelFor(c => c.Phone)
+                @Html.LabelFor(c => c.Type)
             </div>
             <div class="col-xs-8 col-sm-8">
-                @Model.Phone
+                @Model.Type
             </div>
         </div>
         <div class="col-md-6">
@@ -96,25 +98,31 @@
 </div>
 
 <h3>Orders</h3>
-@*@if (Model.Employees.Count > 0)
+@if (Model.Orders.Count > 0)
 {
     <table class="table table-striped">
         <thead>
             <tr>
-                <th>Name</th>
-                <th>Ext.</th>
+                <th>Order Number</th>
+                <th>Date Ordered</th>
+                <th>Date Completed</th>
+                <th>Appraiser</th>
+                <th>Report</th>
                 <th>&nbsp;</th>
             </tr>
         </thead>
         <tbody>
-            @foreach (var employee in Model.Employees)
+            @foreach (var order in Model.Orders)
             {
                 <tr>
-                    <td>@employee.FirstName @employee.LastName</td>
-                    <td>@employee.PhoneExt</td>
+                    <td>@order.OrderNumber</td>
+                    <td>@order.DateOrdered</td>
+                    <td>@order.DateCompleted</td>
+                    <td>@order.Appraiser.PrintName</td>
+                    <td>@order.Report.Form</td>
                     <td>
                         <div class="pull-right">
-                            <a href="@Url.Action("Detail","Employees", new { id = employee.Id })" class="btn btn-primary btn-xs margin-right">
+                            <a href="@Url.Action("Detail","Orders", new { id = order.Id })" class="btn btn-primary btn-xs margin-right">
                                 <span class="glyphicon glyphicon-info-sign"></span><span class="hidden-xs">Detail</span>
                             </a>
                         </div>
@@ -126,8 +134,8 @@
 }
 else
 {
-    <p>This office doesn't contain any employees.</p>
-}*@
+    <p>This client doesn't have any orders.</p>
+}
 
 <div class="pad-top">
     <a href="@Url.Action("Edit", new { id = Model.Id })" class="btn btn-primary btn-lg margin-right">

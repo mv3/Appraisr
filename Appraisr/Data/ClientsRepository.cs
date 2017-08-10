@@ -30,6 +30,9 @@ namespace Appraisr.Data
             if (includeRelatedEntities)
             {
                 clients = clients
+                    .Include(c => c.Orders)
+                    .Include(c => c.Orders.Select(o => o.Appraiser))
+                    .Include(c => c.Orders.Select(o => o.Report))
                     .Include(c => c.Address); 
             }
 

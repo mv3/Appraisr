@@ -33,7 +33,7 @@ namespace Appraisr.Models
         public Client Client { get; set; }
         [Display(Name = "Appraiser")]
         public int AppraiserId { get; set; }
-        public Appraiser Appraiser { get; set; }
+        public Employee Appraiser { get; set; }
         [Display(Name = "Report")]
         public int ReportId { get; set; }
         public Report Report { get; set; }

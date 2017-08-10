@@ -23,7 +23,8 @@ namespace Appraisr.ViewModels.OrderViewModels
                 .ToList(), "Id", "Name");
 
             AppraisersSelectListItems = new SelectList(
-                context.Appraisers.OrderBy(a => a.LastName)
+                context.Employees.Where(e => e.Role == "Appraiser")
+                .OrderBy(a => a.LastName)
                 .ThenBy(a => a.FirstName)
                 .ToList(), "Id", "PrintName");
 

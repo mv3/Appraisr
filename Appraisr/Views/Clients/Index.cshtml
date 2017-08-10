@@ -18,6 +18,7 @@
     <thead>
         <tr>
             <th>Client</th>
+            <th>Type</th>
             <th>&nbsp;</th>
         </tr>
     </thead>
@@ -25,11 +26,18 @@
         @foreach (var client in Model)
         {
             <tr>
-                <td>@client.Name</td>
+                <td><a href="@Url.Action("Detail", new { id = client.Id })"> @client.Name</a></td>
+                <td>@client.Type</td>
                 <td>
                     <div class="pull-right">
-                        <a href="@Url.Action("Detail", new { id = client.Id })" class="btn btn-primary btn-xs margin-right">
+                        <a href="@Url.Action("Detail", new { id = client.Id })" class="btn btn-info btn-xs margin-right">
                             <span class="glyphicon glyphicon-info-sign"></span><span class="hidden-xs"> Detail</span>
+                        </a>
+                        <a href="@Url.Action("Edit", new { id = client.Id })" class="btn btn-primary btn-xs margin-right">
+                            <span class="glyphicon glyphicon-edit"></span><span class="hidden-xs"> Edit</span>
+                        </a>
+                        <a href="@Url.Action("Delete", new { id = client.Id })" class="btn btn-danger btn-xs margin-right">
+                            <span class="glyphicon glyphicon-trash"></span><span class="hidden-xs"> Delete</span>
                         </a>
                     </div>
                 </td>

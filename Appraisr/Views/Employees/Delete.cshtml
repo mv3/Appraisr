@@ -11,10 +11,10 @@
 @using (Html.BeginForm())
 {
     <div class="pad-top">
-        <button type="submit" class="btn btn-danger btn-lg margin-right">
+        <button type="submit" class="btn btn-primary btn-lg margin-right">
             <span class="glyphicon glyphicon-trash"></span> Delete
         </button>
-        <a href="@Url.Action("Detail", new { id = Model.Id })" class="btn btn-warning btn-lg">
+        <a href="@Url.Action("Detail", new { id = Model.Id })" class="btn btn-default btn-lg">
             <span class="glyphicon glyphicon-remove"></span> Cancel
         </a>
     </div>
