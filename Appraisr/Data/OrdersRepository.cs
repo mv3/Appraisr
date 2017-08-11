@@ -23,7 +23,7 @@ namespace Appraisr.Data
                     .Include(o => o.Appraiser)
                     .Include(o => o.Client)
                     .Include(o => o.Report)
-                    .OrderBy(o => o.OrderNumber)
+                    .OrderByDescending(o => o.OrderNumber)
                     .ToList();
         }
 

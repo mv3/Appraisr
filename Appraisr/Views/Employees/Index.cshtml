@@ -5,56 +5,9 @@
 
 @Html.Partial("_Message")
 
-
-<h2>@ViewBag.Title</h2>
-
-@*<div class="pull-right">
-    <a href="@Url.Action("Add")" class="btn btn-primary btn-lg">
-        <span class="glyphicon glyphicon-plus"></span> Add Employee
-    </a>
-    <a href="@Url.Action("AddAppraiser")" class="btn btn-primary btn-lg">
-        <span class="glyphicon glyphicon-plus"></span> Add Appraiser
-    </a>
-</div>*@
-
-
-@*<table class="table table-striped">
-    <thead>
-        <tr>
-            <th>Name</th>
-            <th>Office</th>
-            <th>Open Orders</th>
-            <th>&nbsp;</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var employee in Model)
-        {
-            <tr>
-                <td><a href="@Url.Action("Detail", new { id = employee.Id })">@employee.FirstName @employee.LastName</a></td>
-                <td><a href="@Url.Action("Detail","Offices", new { id = employee.Office.Id })">@employee.Office.OfficeName</a></td>
-                <td>@employee.Orders.Count()</td>
-                <td>
-                    <div class="pull-right">
-                        <a href="@Url.Action("Detail", new { id = employee.Id })" class="btn btn-info btn-xs margin-right">
-                            <span class="glyphicon glyphicon-info-sign"></span><span class="hidden-xs"> Detail</span>
-                        </a>
-                        <a href="@Url.Action("Edit", new { id = employee.Id })" class="btn btn-primary btn-xs margin-right">
-                            <span class="glyphicon glyphicon-edit"></span><span class="hidden-xs"> Edit</span>
-                        </a>
-                        <a href="@Url.Action("Delete", new { id = employee.Id })" class="btn btn-danger btn-xs margin-right">
-                            <span class="glyphicon glyphicon-trash"></span><span class="hidden-xs"> Delete</span>
-                        </a>
-                    </div>
-                </td>
-            </tr>
-        }
-    </tbody>
-</table>*@
-
 <div class="panel panel-primary">
     <div class="panel-heading">
-        <h3 class="panel-title"></h3>
+        <h2 class="panel-title">@ViewBag.Title</h2>
     </div>
     <div class="panel-body">
         <ul class="nav nav-tabs">
@@ -81,14 +34,23 @@
                 </thead>
                 <tbody>
                     @foreach (var employee in Model)
-                    {                       
+                    {
                         if(employee.Role == "Appraiser")
-                        { 
+                        {
+                            int openOrders = 0;
+                            foreach(var order in employee.Orders)
+                            {
+                                if (order.DateCompleted != null)
+                                {
+                                    openOrders += 1;
+                                }
+                            }
                             <tr>
                                 <td><a href="@Url.Action("Detail", new { id = employee.Id })">@employee.FirstName @employee.LastName</a></td>
                                 <td><a href="@Url.Action("Detail","Offices", new { id = employee.Office.Id })">@employee.Office.OfficeName</a></td>
-                                <td>@employee.Orders.Count()</td>
+                                <td>@openOrders</td>
                                 <td>@employee.WorkloadLimit</td>
+                                <td><p class="@(employee.Active ? "text-success" : "text-warning")">@(employee.Active ? "Active" : "Inactive")</p></td>
                                 <td>
                                     <div class="pull-right">
                                         <a href="@Url.Action("Detail", new { id = employee.Id })" class="btn btn-info btn-xs margin-right">
@@ -102,7 +64,6 @@
                                         </a>
                                     </div>
                                 </td>
-                                <td>@</td>
                             </tr>
                         }
                     }
@@ -120,21 +81,21 @@
                         <tr>
                             <th>Name</th>
                             <th>Office</th>
-                            <th>Open Orders</th>
-                            <th>Max Work Load</th>
+                            <th>Position</th>
+                            <th>Status</th>
                             <th>&nbsp;</th>
                         </tr>
                     </thead>
                     <tbody>
                         @foreach (var employee in Model)
                         {
-                            if (employee.Role == "Staff")
+                            if (employee.Role != "Appraiser")
                             {
                                 <tr>
                                     <td><a href="@Url.Action("Detail", new { id = employee.Id })">@employee.FirstName @employee.LastName</a></td>
-                                    <td><a href="@Url.Action("Detail","Offices", new { id = employee.Office.Id })">@employee.Office.OfficeName</a></td>
-                                    <td>@employee.Orders.Count()</td>
-                                    <td>@employee.WorkloadLimit</td>
+                                    <td><a href="@Url.Action("Detail","Offices", new { id = employee.Office.Id })">@employee.Office.OfficeName</a></td>    
+                                    <td>@employee.Role</td>
+                                    <td><p class="@(employee.Active ? "text-success" : "text-warning")">@(employee.Active ? "Active" : "Inactive")</p></td>
                                     <td>
                                         <div class="pull-right">
                                             <a href="@Url.Action("Detail", new { id = employee.Id })" class="btn btn-info btn-xs margin-right">

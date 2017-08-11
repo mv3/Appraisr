@@ -47,7 +47,7 @@
     </div>
 </div>
 
-<h3>Employees</h3>
+@*<h3>Employees</h3>
 @if (Model.Employees.Count > 0)
 {
     <table class="table table-striped">
@@ -79,7 +79,10 @@
 else
 {
     <p>This office doesn't contain any employees.</p>
-}
+}*@
+
+@Html.Partial("_OfficeEmployees")
+
 
 <div class="pad-top">
     <a href="@Url.Action("Edit", new { id = Model.Id })" class="btn btn-primary btn-lg margin-right">

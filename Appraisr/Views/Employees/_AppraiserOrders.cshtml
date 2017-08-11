@@ -18,7 +18,6 @@
                             <tr>
                                 <th>Order Number</th>
                                 <th>Date Ordered</th>
-                                <th>Date Completed</th>
                                 <th>Client</th>
                                 <th>Report</th>
                             </tr>
@@ -28,9 +27,8 @@
                             {
                                 <tr>
                                     <td><a href="@Url.Action("Detail","Orders", new { id = order.Id })" class="btn btn-primary btn-xs margin-right">@order.OrderNumber</a></td>
-                                    <td>@order.DateOrdered</td>
-                                    <td>@order.DateCompleted</td>
-                                    <td>@order.Client.Name</td>
+                                    <td>@string.Format("{0:MM/dd/yyyy}", order.DateOrdered)</td>
+                                    <td><a href="@Url.Action("Detail","Clients", new { id = order.Client.Id })">@order.Client.Name</a></td>
                                     <td>@order.Report.Form</td>                                    
                                 </tr>
                             }
@@ -60,9 +58,9 @@
                             {
                                 <tr>
                                     <td><a href="@Url.Action("Detail","Orders", new { id = order.Id })" class="btn btn-primary btn-xs margin-right">@order.OrderNumber</a></td>
-                                    <td>@order.DateOrdered</td>
-                                    <td>@order.DateCompleted</td>
-                                    <td>@order.Client.Name</td>
+                                    <td>@string.Format("{0:MM/dd/yyyy}", order.DateOrdered)</td>
+                                    <td>@string.Format("{0:MM/dd/yyyy}", order.DateCompleted)</td>
+                                    <td><a href="@Url.Action("Detail","Clients", new { id = order.Client.Id })">@order.Client.Name</a></td>
                                     <td>@order.Report.Form</td>                                    
                                 </tr>
                             }

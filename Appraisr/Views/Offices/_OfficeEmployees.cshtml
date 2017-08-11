@@ -1,0 +1,94 @@
+﻿@model Appraisr.Models.Office
+
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <h2 class="panel-title">Employees</h2>
+    </div>
+    <div class="panel-body">
+        <ul class="nav nav-tabs">
+            <li class="active"><a href="#appraisers" data-toggle="tab" aria-expanded="true">Appraisers</a></li>
+            <li class=""><a href="#staff" data-toggle="tab" aria-expanded="false">Staff</a></li>
+        </ul>
+        <div id="myTabContent" class="tab-content">
+            <div class="tab-pane fade active in" id="appraisers">                
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Ext</th>
+                            <th>Open Orders</th>
+                            <th>Max Work Load</th>
+                            <th>Status</th>
+                            <th>&nbsp;</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var employee in Model.Employees)
+                        {
+                            if (employee.Role == "Appraiser")
+                            {
+                                int openOrders = 0;
+                                foreach (var order in employee.Orders)
+                                {
+                                    if (order.DateCompleted != null)
+                                    {
+                                        openOrders += 1;
+                                    }
+                                }
+                                <tr>
+                                    <td><a href="@Url.Action("Detail","Employees", new { id = employee.Id })">@employee.FirstName @employee.LastName</a></td>
+                                    <td>@employee.PhoneExt</td>
+                                    <td>@openOrders</td>
+                                    <td>@employee.WorkloadLimit</td>
+                                    <td><p class="@(employee.Active ? "text-success" : "text-warning")">@(employee.Active ? "Active" : "Inactive")</p></td>
+                                    <td>
+                                        <div class="pull-right">
+                                            <a href="@Url.Action("Detail", new { id = employee.Id })" class="btn btn-info btn-xs margin-right">
+                                                <span class="glyphicon glyphicon-info-sign"></span><span class="hidden-xs"> Detail</span>
+                                            </a>
+                                        </div>
+                                    </td>
+                                </tr>
+                            }
+                        }
+                    </tbody>
+                </table>
+            </div>
+            <div class="tab-pane fade" id="staff">                
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Ext</th>
+                            <th>Position</th>
+                            <th>Status</th>
+                            <th>&nbsp;</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var employee in Model.Employees)
+                        {
+                            if (employee.Role != "Appraiser")
+                            {
+                                <tr>
+                                    <td><a href="@Url.Action("Detail", new { id = employee.Id })">@employee.FirstName @employee.LastName</a></td>
+                                    <td>@employee.PhoneExt</td>
+                                    <td>@employee.Role</td>
+                                    <td><p class="@(employee.Active ? "text-success" : "text-warning")">@(employee.Active ? "Active" : "Inactive")</p></td>
+                                    <td>
+                                        <div class="pull-right">
+                                            <a href="@Url.Action("Detail", new { id = employee.Id })" class="btn btn-info btn-xs margin-right">
+                                                <span class="glyphicon glyphicon-info-sign"></span><span class="hidden-xs"> Detail</span>
+                                            </a>
+                                        </div>
+                                    </td>
+                                </tr>
+                            }
+                        }
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+    </div>
+</div>

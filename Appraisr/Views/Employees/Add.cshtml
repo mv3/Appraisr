@@ -8,8 +8,9 @@
 
 @using (Html.BeginForm())
 {
-    @*@Html.ValidationSummary("The following errors were found:", new { @class = "alert alert-danger" })*@
-    
+    if (!ViewData.ModelState.IsValid) { @Html.ValidationSummary("The following errors were found:", new { @class = "alert alert-danger" }) }
+
+
     <h3>@Model.Employee.Role Information</h3>
 
     <div class="row">

@@ -1,14 +1,14 @@
 ﻿@model Appraisr.ViewModels.EmployeeViewModels.EmployeesEditViewModel
 
 @{
-    ViewBag.Title = "Edit" + Model.Employee.Role;
+    ViewBag.Title = "Edit " + Model.Employee.Role;
 }
 
 <h2>@ViewBag.Title</h2>
 
 @using (Html.BeginForm())
 {
-    //@Html.ValidationSummary("The following errors were found:", new { @class = "alert alert-danger" })
+    if (!ViewData.ModelState.IsValid) { @Html.ValidationSummary("The following errors were found:", new { @class = "alert alert-danger" }) }
 
     <h3>@Model.Employee.Role Information</h3>
 

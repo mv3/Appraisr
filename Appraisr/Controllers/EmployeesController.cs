@@ -289,8 +289,9 @@ namespace Appraisr.Controllers
             {
                 // Then make sure that the provided Name is unique.
                 if (Context.Employees
-                        .Any(e => e.FirstName != employee.FirstName &&
-                                   e.LastName == employee.LastName))
+                        .Any(e => e.Id != employee.Id &&
+                                  e.FirstName == employee.FirstName &&
+                                  e.LastName == employee.LastName))
                 {
                     ModelState.AddModelError("FirstName",
                         "An employee by this name already exists.");

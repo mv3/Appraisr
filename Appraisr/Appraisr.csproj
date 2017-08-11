@@ -331,6 +331,7 @@
     <Content Include="Views\Employees\_AppraiserForm.cshtml" />
     <Content Include="Views\Employees\_AppraiserDetail.cshtml" />
     <Content Include="Views\Employees\_AppraiserOrders.cshtml" />
+    <Content Include="Views\Offices\_OfficeEmployees.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -5,36 +5,44 @@
 
 @Html.Partial("_Message")
 
-
-<h2>@ViewBag.Title</h2>
-
-<div class="pull-right">
-    <a href="@Url.Action("Add")" class="btn btn-primary btn-lg">
-        <span class="glyphicon glyphicon-plus"></span> Add Office
-    </a>
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <h2 class="panel-title">@ViewBag.Title</h2>
+    </div>
+    <div class="panel-body">               
+        <div class="pull-right">
+            <a href="@Url.Action("Add")" class="btn btn-primary btn-sm">
+                <span class="glyphicon glyphicon-plus"></span> Add Office
+            </a>
+        </div>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Office</th>
+                    <th>&nbsp;</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var office in Model)
+                {                    
+                    <tr>
+                        <td>@office.OfficeName</td>
+                        <td>
+                            <div class="pull-right">
+                                <a href="@Url.Action("Detail", new { id = office.Id })" class="btn btn-info btn-xs margin-right">
+                                    <span class="glyphicon glyphicon-info-sign"></span><span class="hidden-xs"> Detail</span>
+                                </a>
+                                <a href="@Url.Action("Edit", new { id = office.Id })" class="btn btn-primary btn-xs margin-right">
+                                    <span class="glyphicon glyphicon-edit"></span><span class="hidden-xs"> Edit</span>
+                                </a>
+                                <a href="@Url.Action("Delete", new { id = office.Id })" class="btn btn-danger btn-xs margin-right">
+                                    <span class="glyphicon glyphicon-trash"></span><span class="hidden-xs"> Delete</span>
+                                </a>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
 </div>
-
-<table class="table table-striped">
-    <thead>
-        <tr>
-            <th>Office</th>
-            <th>&nbsp;</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var office in Model)
-        {
-            <tr>
-                <td>@office.OfficeName</td>
-                <td>
-                    <div class="pull-right">
-                        <a href="@Url.Action("Detail", new { id = office.Id })" class="btn btn-primary btn-xs margin-right">
-                            <span class="glyphicon glyphicon-info-sign"></span><span class="hidden-xs"> Detail</span>
-                        </a>
-                    </div>
-                </td>
-            </tr>
-        }
-    </tbody>
-</table>
-

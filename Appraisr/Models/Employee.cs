@@ -50,6 +50,7 @@ namespace Appraisr.Models
         public int WorkloadLimit { get; set; }
         [Display(Name = "Pay %"), Range(0,100), Required]
         public int PayPercent { get; set; }
+        [Required]
         public string Role { get; set; }
 
         public ICollection<Order> Orders { get; set; }
@@ -62,5 +63,7 @@ namespace Appraisr.Models
                 return $"{FirstName} {LastName}";
             }
         }
+
+        
     }   
 }

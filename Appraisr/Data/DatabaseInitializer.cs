@@ -67,7 +67,8 @@ namespace Appraisr.Data
                 FhaApproved = true,
                 IsLicensed = true,
                 PayPercent = 50,
-                Role = "Appraiser"
+                Role = "Appraiser",
+                WorkloadLimit = 10
             };
             context.Employees.Add(app1);
 
@@ -84,38 +85,105 @@ namespace Appraisr.Data
                 FhaApproved = true,
                 IsLicensed = true,
                 PayPercent = 50,
-                Role = "Appraiser"
+                Role = "Appraiser",
+                WorkloadLimit = 8
             };
             context.Employees.Add(app2);
 
-            var emp3 = new Employee()
+            var app3 = new Employee()
+            {
+                FirstName = "Super",
+                LastName = "Grover",
+                PhoneCell = "888-4567",
+                PhoneExt = "456",
+                Email = "SGrover@Appraisr.com",
+                HireDate = new DateTime(2014, 5, 1),
+                Office = JCOffice,
+                Active = true,
+                FhaApproved = true,
+                IsLicensed = true,
+                PayPercent = 50,
+                Role = "Appraiser",
+                WorkloadLimit = 6
+            };
+            context.Employees.Add(app3);
+
+            var app4 = new Employee()
+            {
+                FirstName = "Slow",
+                LastName = "Poke",
+                PhoneCell = "111-1111",
+                PhoneExt = "111",
+                Email = "SPoker@Appraisr.com",
+                HireDate = new DateTime(2016, 7, 1),
+                Office = ComoOffice,
+                Active = false,
+                FhaApproved = true,
+                IsLicensed = false,
+                PayPercent = 50,
+                Role = "Appraiser",
+                WorkloadLimit = 1,
+                TerminationDate = new DateTime(2016, 8, 1),
+                TerminationReason = "Too Slow"
+            };
+            context.Employees.Add(app4);
+
+            var emp1 = new Employee()
             {
                 FirstName = "Oscar",
                 LastName = "Grouch",
-                PhoneCell = "111-1111",
-                PhoneExt = "111",
+                PhoneCell = "999-9999",
+                PhoneExt = "999",
                 Email = "OGrouch@Appraisr.com",
                 HireDate = new DateTime(2014, 6, 1),
                 TerminationDate = new DateTime(2015, 1, 1),
-                TerminationReason = "Grouchy",
+                TerminationReason = "Too Grouchy",
                 Office = ComoOffice,
                 Active = false,
-                Role = "Staff"
+                Role = "Janitor"
             };
-            context.Employees.Add(emp3);
+            context.Employees.Add(emp1);
 
-            var emp4 = new Employee()
+            var emp2 = new Employee()
             {
                 FirstName = "Lost",
                 LastName = "Worker",
-                PhoneCell = "111-1111",
-                PhoneExt = "111",
+                PhoneCell = "000-0000",
+                PhoneExt = "000",
                 Email = "LWorker@Appraisr.com",
                 HireDate = new DateTime(2014, 6, 1),
                 TerminationReason = "",
                 Office = NoOffice,
                 Active = true,
                 Role = "Staff"
+            };
+            context.Employees.Add(emp2);
+
+            var emp3 = new Employee()
+            {
+                FirstName = "Computer",
+                LastName = "Guy",
+                PhoneCell = "101-0101",
+                PhoneExt = "010",
+                Email = "CGuy@Appraisr.com",
+                HireDate = new DateTime(2014, 1, 1),
+                Office = JCOffice,
+                Active = true,
+                Role = "IT Technician"
+            };
+            context.Employees.Add(emp3);
+
+            var emp4 = new Employee()
+            {
+                FirstName = "Money",
+                LastName = "Guy",
+                PhoneCell = "987-6543",
+                PhoneExt = "210",
+                Email = "MGuy@Appraisr.com",
+                HireDate = new DateTime(2014, 1, 1),
+                Office = JCOffice,
+                Active = true,
+                Role = "Accountant"
             };
             context.Employees.Add(emp4);
 

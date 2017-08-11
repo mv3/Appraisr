@@ -18,6 +18,8 @@ namespace Appraisr.Data
         public override IList<Office> GetList()
         {
             return Context.Offices
+                    .Include(o => o.Employees)
+                    .Include(o => o.Employees.Select(e => e.Orders))
                     .OrderBy(e => e.City)
                     .ToList();
         }
@@ -29,7 +31,7 @@ namespace Appraisr.Data
             if (includeRelatedEntities)
             {
                 offices = offices
-                    .Include(e => e.Employees); ;
+                    .Include(e => e.Employees); 
             }
 
             return offices

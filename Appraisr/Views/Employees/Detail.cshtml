@@ -72,8 +72,8 @@
             <div class="col-xs-4 col-sm-4">
                 @Html.LabelFor(e => e.Employee.Active)
             </div>
-            <div class="col-xs-8 col-sm-8" style="@(Model.Employee.Active ? "color:green" : "color:red")">
-                @(Model.Employee.Active ? "Active" : "Inactive")
+            <div class="col-xs-8 col-sm-8"> 
+                <p class="@(Model.Employee.Active ? "text-success" : "text-warning")"> @(Model.Employee.Active ? "Active" : "Inactive")</p>
             </div>
         </div>
         @if (!Model.Employee.Active)
@@ -115,7 +115,7 @@
     <a href="@Url.Action("Edit", new { id = Model.Employee.Id })" class="btn btn-primary btn-lg margin-right">
         <span class="glyphicon glyphicon-edit"></span> Edit
     </a>
-    @if (Model.Employee.Role == "Staff")
+    @if (Model.Employee.Role != "Appraiser")
     { 
         <a href="@Url.Action("Promote", new { id = Model.Employee.Id })" class="btn btn-info btn-lg">
             <span class="glyphicon glyphicon-arrow-up"></span> Promote Appraiser

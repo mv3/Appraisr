@@ -20,7 +20,7 @@ namespace Appraisr.Data
             return Context.Employees
                     .Include(e => e.Office)
                     .Include(e =>e.Orders)
-                    .OrderBy(e => e.Office.City)
+                    .OrderByDescending(e => e.Active)
                     .ThenBy(e => e.LastName)
                     .ThenBy(e => e.FirstName)
                     .ToList();
