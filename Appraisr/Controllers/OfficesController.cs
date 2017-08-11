@@ -53,7 +53,7 @@ namespace Appraisr.Controllers
         [HttpPost]
         public ActionResult Add(OfficesAddViewModel viewModel)
         {
-            // ValidateEmployee(viewModel.Employee);
+             ValidateEmployee(viewModel.Office);
 
             if (ModelState.IsValid)
             {
@@ -95,7 +95,7 @@ namespace Appraisr.Controllers
         [HttpPost]
         public ActionResult Edit(OfficesEditViewModel viewModel)
         {
-            // ValidateEmployee(viewModel.Employee);
+             ValidateEmployee(viewModel.Office);
 
             if (ModelState.IsValid)
             {
@@ -142,6 +142,24 @@ namespace Appraisr.Controllers
             TempData["Message"] = "The office was successfully deleted!";
 
             return RedirectToAction("Index");
+        }
+
+       
+        private void ValidateEmployee(Office office)
+        {
+            // If there aren't any "Name" field validation errors...
+            if (ModelState.IsValidField("City") && ModelState.IsValidField(""))
+            {
+                // Then make sure that the provided Name is unique.
+                if (Context.Offices
+                        .Any(o => o.Id != office.Id &&
+                                  o.City == office.City &&
+                                  o.Address == office.Address))
+                {
+                    ModelState.AddModelError("Address",
+                        "An office already exists at this address.");
+                }
+            }
         }
 
 

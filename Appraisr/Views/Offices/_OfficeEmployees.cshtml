@@ -16,8 +16,6 @@
                         <tr>
                             <th>Name</th>
                             <th>Ext</th>
-                            <th>Open Orders</th>
-                            <th>Max Work Load</th>
                             <th>Status</th>
                             <th>&nbsp;</th>
                         </tr>
@@ -26,24 +24,14 @@
                         @foreach (var employee in Model.Employees)
                         {
                             if (employee.Role == "Appraiser")
-                            {
-                                int openOrders = 0;
-                                foreach (var order in employee.Orders)
-                                {
-                                    if (order.DateCompleted != null)
-                                    {
-                                        openOrders += 1;
-                                    }
-                                }
+                            {                                
                                 <tr>
                                     <td><a href="@Url.Action("Detail","Employees", new { id = employee.Id })">@employee.FirstName @employee.LastName</a></td>
                                     <td>@employee.PhoneExt</td>
-                                    <td>@openOrders</td>
-                                    <td>@employee.WorkloadLimit</td>
                                     <td><p class="@(employee.Active ? "text-success" : "text-warning")">@(employee.Active ? "Active" : "Inactive")</p></td>
                                     <td>
                                         <div class="pull-right">
-                                            <a href="@Url.Action("Detail", new { id = employee.Id })" class="btn btn-info btn-xs margin-right">
+                                            <a href="@Url.Action("Detail","Employees", new { id = employee.Id })" class="btn btn-info btn-xs margin-right">
                                                 <span class="glyphicon glyphicon-info-sign"></span><span class="hidden-xs"> Detail</span>
                                             </a>
                                         </div>
@@ -71,13 +59,13 @@
                             if (employee.Role != "Appraiser")
                             {
                                 <tr>
-                                    <td><a href="@Url.Action("Detail", new { id = employee.Id })">@employee.FirstName @employee.LastName</a></td>
+                                    <td><a href="@Url.Action("Detail","Employees", new { id = employee.Id })">@employee.FirstName @employee.LastName</a></td>
                                     <td>@employee.PhoneExt</td>
                                     <td>@employee.Role</td>
                                     <td><p class="@(employee.Active ? "text-success" : "text-warning")">@(employee.Active ? "Active" : "Inactive")</p></td>
                                     <td>
                                         <div class="pull-right">
-                                            <a href="@Url.Action("Detail", new { id = employee.Id })" class="btn btn-info btn-xs margin-right">
+                                            <a href="@Url.Action("Detail","Employees", new { id = employee.Id })" class="btn btn-info btn-xs margin-right">
                                                 <span class="glyphicon glyphicon-info-sign"></span><span class="hidden-xs"> Detail</span>
                                             </a>
                                         </div>

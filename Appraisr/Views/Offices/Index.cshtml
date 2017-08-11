@@ -19,6 +19,8 @@
             <thead>
                 <tr>
                     <th>Office</th>
+                    <th>Address</th>
+                    <th>Employees</th>
                     <th>&nbsp;</th>
                 </tr>
             </thead>
@@ -26,7 +28,9 @@
                 @foreach (var office in Model)
                 {                    
                     <tr>
-                        <td>@office.OfficeName</td>
+                        <td><a href="@Url.Action("Detail", new { id = office.Id })">@office.OfficeName</a></td>
+                        <td>@office.Address</td>
+                        <td>@office.Employees.Count()</td>
                         <td>
                             <div class="pull-right">
                                 <a href="@Url.Action("Detail", new { id = office.Id })" class="btn btn-info btn-xs margin-right">
