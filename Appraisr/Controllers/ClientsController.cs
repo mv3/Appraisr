@@ -39,7 +39,12 @@ namespace Appraisr.Controllers
                 return HttpNotFound();
             }
 
-            return View(client);
+            var viewModel = new ClientDetailViewModel()
+            {
+                Client = client
+            };
+
+            return View(viewModel);
         }
 
         public ActionResult Add()

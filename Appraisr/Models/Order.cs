@@ -37,5 +37,7 @@ namespace Appraisr.Models
         [Display(Name = "Report")]
         public int ReportId { get; set; }
         public Report Report { get; set; }
+        [Display(Name = "Status")]
+        public bool Open { get; set; }
     }
 }

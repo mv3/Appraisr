@@ -234,17 +234,18 @@ namespace Appraisr.Data
                 DateInvoiced = new DateTime(2017, 6, 4),
                 DatePaid = new DateTime(2017, 6, 5),
                 Address = new Address()
-                    {
-                        Line1 = "456 Street Road",
-                        Line2 = "",
-                        City = "Jeffesron City",
-                        State = "MO",
-                        ZipCode = "65101"
-                    },
+                {
+                    Line1 = "456 Street Road",
+                    Line2 = "",
+                    City = "Jeffesron City",
+                    State = "MO",
+                    ZipCode = "65101"
+                },
                 Client = client1,
                 Appraiser = app1,
                 AppraisedValue = 90000.00M,
-                Report = reportURAR
+                Report = reportURAR,
+                Open = false
             };
             context.Orders.Add(order1);
 
@@ -269,7 +270,8 @@ namespace Appraisr.Data
                 Client = client1,
                 Appraiser = app1,
                 AppraisedValue = 120000.00M,
-                Report = reportURAR
+                Report = reportURAR,
+                Open = false
             };
             context.Orders.Add(order2);
 
@@ -289,7 +291,8 @@ namespace Appraisr.Data
                 Client = client2,
                 Appraiser = app1,
                 AppraisedValue = 120000.00M,
-                Report = report2055
+                Report = report2055,
+                Open = true
             };
             context.Orders.Add(order3);
 
@@ -309,11 +312,10 @@ namespace Appraisr.Data
                 Client = client1,
                 Appraiser = app2,
                 AppraisedValue = 120000.00M,
-                Report = reportURAR
+                Report = reportURAR,
+                Open = true
             };
             context.Orders.Add(order4);
-
-
 
             context.SaveChanges();
 

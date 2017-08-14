@@ -1,0 +1,78 @@
+﻿@model Appraisr.ViewModels.ClientViewModels.ClientDetailViewModel
+
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <h3 class="panel-title">Orders</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="nav nav-tabs">
+            <li class="active"><a href="#open" data-toggle="tab" aria-expanded="true">Open</a></li>
+            <li class=""><a href="#completed" data-toggle="tab" aria-expanded="false">Completed</a></li>
+        </ul>
+        <div id="myTabContent" class="tab-content">
+            <div class="tab-pane fade active in" id="open">
+                @if (Model.OpenOrders.Count() > 0)
+            {
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Order Number</th>
+                                <th>Date Ordered</th>
+                                <th>Appraiser</th>
+                                <th>Report</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var order in Model.OpenOrders)
+                            {
+                                <tr>
+                                    <td><a href="@Url.Action("Detail","Orders", new { id = order.Id })" class="btn btn-primary btn-xs margin-right">@order.OrderNumber</a></td>
+                                    <td>@string.Format("{0:MM/dd/yyyy}", order.DateOrdered)</td>
+                                    <td><a href="@Url.Action("Detail","Employees", new { id = order.Appraiser.Id })">@order.Appraiser.FirstName @order.Appraiser.LastName</a></td>
+                                    <td>@order.Report.Form</td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                }
+                else
+                {
+                    <p>This client doesn't have any open orders.</p>
+                }
+            </div>
+            <div class="tab-pane fade" id="completed">
+                @if (Model.ClosedOrders.Count() > 0)
+            {
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Order Number</th>
+                                <th>Date Ordered</th>
+                                <th>Date Completed</th>
+                                <th>Appraiser</th>
+                                <th>Report</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var order in Model.ClosedOrders)
+                            {
+                                <tr>
+                                    <td><a href="@Url.Action("Detail","Orders", new { id = order.Id })" class="btn btn-primary btn-xs margin-right">@order.OrderNumber</a></td>
+                                    <td>@string.Format("{0:MM/dd/yyyy}", order.DateOrdered)</td>
+                                    <td>@string.Format("{0:MM/dd/yyyy}", order.DateCompleted)</td>
+                                    <td><a href="@Url.Action("Detail","Employees", new { id = order.Appraiser.Id })">@order.Appraiser.FirstName @order.Appraiser.LastName</a></td>
+                                    <td>@order.Report.Form</td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                }
+                else
+                {
+                    <p>This client doesn't have any completed orders.</p>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+

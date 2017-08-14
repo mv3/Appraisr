@@ -1,148 +1,110 @@
-﻿@model Appraisr.Models.Client
+﻿@model Appraisr.ViewModels.ClientViewModels.ClientDetailViewModel
 
 @{
-    ViewBag.Title = "Office Detail";
+    ViewBag.Title = "Client Detail";
 }
 
 @Html.Partial("_Message")
 @Html.Partial("_Warning")
 
 
-<h2>@Model.Name</h2>
+<h2>@Model.Client.Name</h2>
 
 <div class="row">
     <div class="col-md-6">
         <div class="row">
             <div class="col-xs-4 col-sm-4">
-                @Html.LabelFor(c => c.Name)
+                @Html.LabelFor(c => c.Client.Name)
             </div>
             <div class="col-xs-8 col-sm-8">
-                @Model.Name
+                @Model.Client.Name
             </div>
         </div> 
         <div class="row">
             <div class="col-xs-4 col-sm-4">
-                @Html.LabelFor(c => c.Address.Line1)
+                @Html.LabelFor(c => c.Client.Address.Line1)
             </div>
             <div class="col-xs-8 col-sm-8">
-                @Model.Address.Line1
+                @Model.Client.Address.Line1
             </div>
         </div>
         <div class="row">
             <div class="col-xs-4 col-sm-4">
-                @Html.LabelFor(c => c.Address.Line2)
+                @Html.LabelFor(c => c.Client.Address.Line2)
             </div>
             <div class="col-xs-8 col-sm-8">
-                @Model.Address.Line2
+                @Model.Client.Address.Line2
             </div>
         </div>
         <div class="row">
             <div class="col-xs-4 col-sm-4">
-                @Html.LabelFor(c => c.Address.City)
+                @Html.LabelFor(c => c.Client.Address.City)
             </div>
             <div class="col-xs-8 col-sm-8">
-                @Model.Address.City
+                @Model.Client.Address.City
             </div>
         </div>
         <div class="row">
             <div class="col-xs-4 col-sm-4">
-                @Html.LabelFor(c => c.Address.State)
+                @Html.LabelFor(c => c.Client.Address.State)
             </div>
             <div class="col-xs-8 col-sm-8">
-                @Model.Address.State
+                @Model.Client.Address.State
             </div>
         </div>
         <div class="row">
             <div class="col-xs-4 col-sm-4">
-                @Html.LabelFor(c => c.Address.ZipCode)
+                @Html.LabelFor(c => c.Client.Address.ZipCode)
             </div>
             <div class="col-xs-8 col-sm-8">
-                @Model.Address.ZipCode
+                @Model.Client.Address.ZipCode
             </div>
         </div>
     </div>
     <div class="col-md-6">
         <div class="row">
             <div class="col-xs-4 col-sm-4">
-                @Html.LabelFor(c => c.Phone)
+                @Html.LabelFor(c => c.Client.Phone)
             </div>
             <div class="col-xs-8 col-sm-8">
-                @Model.Phone
+                @Model.Client.Phone
             </div>
         </div>
         <div class="row">
             <div class="col-xs-4 col-sm-4">
-                @Html.LabelFor(c => c.Email)
+                @Html.LabelFor(c => c.Client.Email)
             </div>
             <div class="col-xs-8 col-sm-8">
-                @Model.Email
+                @Model.Client.Email
             </div>
         </div>
         <div class="row">
             <div class="col-xs-4 col-sm-4">
-                @Html.LabelFor(c => c.Type)
+                @Html.LabelFor(c => c.Client.Type)
             </div>
             <div class="col-xs-8 col-sm-8">
-                @Model.Type
+                @Model.Client.Type
             </div>
         </div>
         <div class="col-md-6">
             <div>
-                @Html.LabelFor(c => c.SpecialInstructions)
+                @Html.LabelFor(c => c.Client.SpecialInstructions)
             </div>
             <div>
-                @(!string.IsNullOrWhiteSpace(Model.SpecialInstructions) ? Model.SpecialInstructions : "N/A")
+                @(!string.IsNullOrWhiteSpace(Model.Client.SpecialInstructions) ? Model.Client.SpecialInstructions : "N/A")
             </div>
         </div>
     </div>
 </div>
 
-<h3>Orders</h3>
-@if (Model.Orders.Count > 0)
-{
-    <table class="table table-striped">
-        <thead>
-            <tr>
-                <th>Order Number</th>
-                <th>Date Ordered</th>
-                <th>Date Completed</th>
-                <th>Appraiser</th>
-                <th>Report</th>
-                <th>&nbsp;</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var order in Model.Orders)
-            {
-                <tr>
-                    <td>@order.OrderNumber</td>
-                    <td>@order.DateOrdered</td>
-                    <td>@order.DateCompleted</td>
-                    <td>@order.Appraiser.PrintName</td>
-                    <td>@order.Report.Form</td>
-                    <td>
-                        <div class="pull-right">
-                            <a href="@Url.Action("Detail","Orders", new { id = order.Id })" class="btn btn-primary btn-xs margin-right">
-                                <span class="glyphicon glyphicon-info-sign"></span><span class="hidden-xs">Detail</span>
-                            </a>
-                        </div>
-                    </td>
-                </tr>
-            }
-        </tbody>
-    </table>
-}
-else
-{
-    <p>This client doesn't have any orders.</p>
-}
+@Html.Partial("_ClientOrders")
 
 <div class="pad-top">
-    <a href="@Url.Action("Edit", new { id = Model.Id })" class="btn btn-primary btn-lg margin-right">
+    <a href="@Url.Action("Edit", new { id = Model.Client.Id })" class="btn btn-primary btn-lg margin-right">
         <span class="glyphicon glyphicon-edit"></span> Edit
     </a>
-    <a href="@Url.Action("Delete", new { id = Model.Id })" class="btn btn-danger btn-lg margin-right">
-        <span class="glyphicon glyphicon-trash"></span> Delete 
+    <a href="@Url.Action("Delete", new { id = Model.Client.Id })" class="btn btn-danger btn-lg margin-right">
+        <span class="glyphicon glyphicon-trash"></span> Delete
     </a>
     <a href="@Url.Action("Index")" class="btn btn-default btn-lg">
         <span class="glyphicon glyphicon-step-backward"></span> Back
