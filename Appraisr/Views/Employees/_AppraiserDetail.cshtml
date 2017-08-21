@@ -6,7 +6,7 @@
             @Html.LabelFor(e => e.Employee.IsLicensed)
         </div>
         <div class="col-xs-8 col-sm-8">
-            @Model.Employee.IsLicensed
+            <p class="@(Model.Employee.IsLicensed ? "text-success" : "text-warning")"> @(Model.Employee.IsLicensed ? "Yes" : "No")</p>
         </div>
     </div>
     <div class="row">
@@ -30,7 +30,7 @@
             @Html.LabelFor(e => e.Employee.FhaApproved)
         </div>
         <div class="col-xs-8 col-sm-8">
-            @Model.Employee.FhaApproved
+            <p class="@(Model.Employee.FhaApproved ? "text-success" : "text-warning")"> @(Model.Employee.FhaApproved ? "Yes" : "No")</p>
         </div>
     </div>
     <div class="row">
@@ -38,7 +38,7 @@
             @Html.LabelFor(e => e.Employee.VaApproved)
         </div>
         <div class="col-xs-8 col-sm-8">
-            @Model.Employee.VaApproved
+            <p class="@(Model.Employee.VaApproved ? "text-success" : "text-warning")"> @(Model.Employee.VaApproved ? "Yes" : "No")</p>
         </div>
     </div>
     <div class="row">

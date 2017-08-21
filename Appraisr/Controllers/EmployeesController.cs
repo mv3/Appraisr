@@ -23,9 +23,13 @@ namespace Appraisr.Controllers
 
         public ActionResult Index()
         {
-            var employees = _empRepo.GetList();
+            //var employees = _empRepo.GetList();
+            var viewModel = new EmployeesIndexViewModel()
+            {
+                Employees = _empRepo.GetList()
+            };
 
-            return View(employees);
+            return View(viewModel);
         }
 
         public ActionResult Detail(int? id)
